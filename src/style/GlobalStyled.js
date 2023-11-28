@@ -20,11 +20,8 @@ body{
     background-color: #1d1d1d;
     color: white;
     font-family: 'Noto Sans KR', sans-serif;
-<<<<<<< HEAD
     width: 100%;
-    /* overflow-x: hidden; */
-=======
->>>>>>> 6ccea8e8b0d4aedbbceb2c5c469edf5c2a56ae12
+
 }
 
 ul, li{
