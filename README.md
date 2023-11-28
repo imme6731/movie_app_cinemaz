@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+## 설치항목
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [x] styled-components
+- [x] react-router-dom
+- [x] styled-reset
+- [] 폼 관련
+- [] 타이틑 관련
+- [] 폰트어썸
+- [] swiper
 
-## Available Scripts
+## todo
 
-In the project directory, you can run:
+- 11월 27일
+- [x] 디자인 기획 컨펌 및 수정
+- [x] 리액트 초기셋팅
+- [x] router 설정
 
-### `npm start`
+- 11월 28일
+- [x] 각 컴포넌트 제작
+- [] header, footer 컴포 제작
+- [] api 설정
+- [] 서브 메뉴 UI 및 api 작업
+- [] Home ui 및 api 작업 - 메인베너
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 11월 29일
+- [] Home ui 및 api 작업 - swiper 작업
+- [] Home ui 및 api 작업 - 섹션 UI 및 api
+- [] View more UI 및 api 작업
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 11월 30일
+- [] Detail ui 및 api 작업
+- [] loading UI
 
-### `npm test`
+- 12월 1일
+- [] Search ui 및 api 작업
+- [] Login UI 작업
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 12월 2일
+- [] SignUp UI 작업
+- [] 404 페이지 UI 구성
+- [] 전체 페이지 helmet 구성
 
-### `npm run build`
+- 12월 3일
+- [] header 스크롤 이벤트
+- [] scrollTo 이벤트 설정
+- [] 컨텐츠 호버 시 이벤트
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 12월 4일
+- 마무리 컨펌 및 수정
+- 배포 테스트 1차
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 12월 5일
+- 배포 테스트 2차
+- 작업 마무리
