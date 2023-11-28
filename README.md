@@ -22,17 +22,10 @@
 - [x] header, footer 컴포 제작
 - [x] api 설정
 - [] 서브 메뉴 UI 및 api 작업
-<<<<<<< HEAD
 - [x] Home ui 및 api 작업 - 메인베너
 
 ### 11월 29일
 
-=======
-- [] Home ui 및 api 작업 - 메인베너
-
-### 11월 29일
-
->>>>>>> 6ccea8e8b0d4aedbbceb2c5c469edf5c2a56ae12
 - [] Home ui 및 api 작업 - swiper 작업
 - [] Home ui 및 api 작업 - 섹션 UI 및 api
 - [] View more UI 및 api 작업
