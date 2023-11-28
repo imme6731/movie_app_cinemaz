@@ -8,10 +8,14 @@ import { Genre } from "./pages/genre/Genre";
 import { Login } from "./pages/login/Login";
 import { SignUp } from "./pages/signUp/SignUp";
 import { PageNotFound } from "./pages/pageNotFound/PageNotFound";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
 export const Router = () => {
   return (
     <HashRouter>
+      <Header />
+
       <Routes>
         <Route path={routes.home} element={<Home />} />
         <Route path={routes.detail} element={<Detail />} />
@@ -22,6 +26,8 @@ export const Router = () => {
         <Route path={routes.signUp} element={<SignUp />} />
         <Route path={routes.pageNotFound} element={<PageNotFound />} />
       </Routes>
+
+      <Footer />
     </HashRouter>
   );
 };
