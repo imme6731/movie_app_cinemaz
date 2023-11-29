@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilm, faHouse, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
+import { useState } from "react";
+import { SubMenu } from "./SubMenu";
 
 const SHeader = styled.header`
   width: 100%;
@@ -11,6 +13,8 @@ const SHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 900;
 `;
 
 const LeftWrap = styled.div`
@@ -27,25 +31,21 @@ const Logo = styled.h3`
 const MenuWrap = styled.ul`
   display: flex;
   position: relative;
+
   li {
     display: flex;
     align-items: center;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     margin-right: 50px;
+    cursor: pointer;
   }
 `;
 
 const HeaderIcon = styled.h3`
   font-size: 22px;
   margin-right: 10px;
-`;
-
-const SubMenu = styled.ul`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  bottom: -200px;
+  cursor: pointer;
 `;
 
 const RightWrap = styled.ul`
@@ -60,10 +60,16 @@ const RightWrap = styled.ul`
 `;
 
 export const Header = () => {
+  const [view, setView] = useState(false);
+
+  // console.log(view);
+
   return (
     <SHeader>
       <LeftWrap>
-        <Logo>CINEMAZ</Logo>
+        <Link to={routes.home}>
+          <Logo>CINEMAZ</Logo>
+        </Link>
 
         <MenuWrap>
           <li>
@@ -76,22 +82,16 @@ export const Header = () => {
               <p>홈</p>
             </Link>
           </li>
-          <li>
+          <li
+            onClick={() => {
+              setView(!view);
+            }}
+          >
             <HeaderIcon>
               <FontAwesomeIcon icon={faFilm} />
             </HeaderIcon>
             <p>영화</p>
-            {/* <SubMenu>
-              <li>액션</li>
-              <li>액션</li>
-              <li>액션</li>
-              <li>액션</li>
-              <li>액션</li>
-              <li>액션</li>
-              <li>액션</li>
-              <li>액션</li>
-              <li>액션</li>
-            </SubMenu> */}
+            {view && <SubMenu />}
           </li>
           <li>
             <HeaderIcon>

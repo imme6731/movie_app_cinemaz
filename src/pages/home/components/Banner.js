@@ -24,7 +24,7 @@ const BlabkBg = styled.div`
 `;
 const TxtWrap = styled.div`
   position: relative;
-  padding: 350px 0 0 6.812%;
+  padding: 400px 0 0 6.812%;
 `;
 const Title = styled.h3`
   max-width: 680px;
@@ -46,7 +46,11 @@ export const Banner = ({ data, tag }) => {
       <BlabkBg />
       <TxtWrap>
         <Title>{data.title}</Title>
-        <Tagline>{tag}</Tagline>
+        {tag === "" ? (
+          <Tagline>{data.overview.slice(0, 100) + "..."}</Tagline>
+        ) : (
+          <Tagline>{tag}</Tagline>
+        )}
       </TxtWrap>
     </SMainBanner>
   );

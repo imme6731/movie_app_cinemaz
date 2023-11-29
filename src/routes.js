@@ -6,5 +6,5 @@ export const routes = {
   genre: "/genre/:id",
   login: "/login",
   signUp: "/signUp",
-  pageNotFound: "/pageNotFound",
+  pageNotFound: "/*",
 };

@@ -29,3 +29,8 @@ export const upcoming = () =>
 
 export const movieDatail = (id) =>
   fetch(url(`movie/${id}?language=ko-KR`), options).then((res) => res.json());
+
+export const genresList = () =>
+  fetch(url("genre/movie/list?language=ko-KR"), options).then((res) =>
+    res.json()
+  );

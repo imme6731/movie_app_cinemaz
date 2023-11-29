@@ -21,11 +21,11 @@
 - [x] 각 컴포넌트 제작
 - [x] header, footer 컴포 제작
 - [x] api 설정
-- [] 서브 메뉴 UI 및 api 작업
 - [x] Home ui 및 api 작업 - 메인베너
 
 ### 11월 29일
 
+- [x] 서브 메뉴 UI 및 api 작업
 - [] Home ui 및 api 작업 - swiper 작업
 - [] Home ui 및 api 작업 - 섹션 UI 및 api
 - [] View more UI 및 api 작업
@@ -65,3 +65,7 @@
 ## new
 
 - 다른 컴퓨터에 다른 사용자 인증된 상태일 때 사용자 인증 삭제 후 재인증 해야함 (git 사용자 인증 삭제 검색 참고)
+
+## problem
+
+- 영화 메뉴 클릭 후 다른 메뉴 누르면 페이지 이동하고 나서 서브메뉴가 그대로 보임

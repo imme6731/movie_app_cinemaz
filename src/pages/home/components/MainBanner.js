@@ -1,9 +1,10 @@
 import "../style/mainbanner.css";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 import { styled } from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
 import { Banner } from "./Banner";
 import { movieDatail, nowPlaying } from "../../../api";
@@ -61,8 +62,9 @@ export const MainBanner = () => {
                   spaceBetween={30}
                   centeredSlides={true}
                   pagination={{ clickable: true }}
+                  navigation={true}
                   //   autoplay={{ delay: 3000, disableOnInteraction: false }}
-                  modules={[Pagination, Autoplay]}
+                  modules={[Pagination, Autoplay, Navigation]}
                 >
                   <SwiperSlide>
                     <Banner data={nowData[0]} tag={tagData_0} />

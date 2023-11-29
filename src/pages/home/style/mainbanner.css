@@ -15,3 +15,19 @@
   height: 100%;
   object-fit: cover;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
+}
+
+.swiper-button-prev {
+  padding-left: 20px;
+}
+.swiper-button-next {
+  padding-right: 20px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ff5c00 !important;
+}
