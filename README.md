@@ -27,7 +27,7 @@
 
 - [x] 서브 메뉴 UI 및 api 작업
 - [] Home ui 및 api 작업 - swiper 작업
-- [] Home ui 및 api 작업 - 섹션 UI 및 api
+- [x] Home ui 및 api 작업 - 섹션 UI 및 api
 - [] View more UI 및 api 작업
 
 ### 11월 30일
@@ -48,6 +48,7 @@
 
 ### 12월 3일
 
+- [] 모바일 헤더 메뉴 작업
 - [] header 스크롤 이벤트
 - [] scrollTo 이벤트 설정
 - [] 컨텐츠 호버 시 이벤트

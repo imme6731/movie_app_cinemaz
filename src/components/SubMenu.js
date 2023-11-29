@@ -4,6 +4,7 @@ import { genresList } from "../api";
 import { Link } from "react-router-dom";
 
 const SubWrap = styled.div`
+  width: 240px;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -32,6 +33,9 @@ const SSubMenu = styled.div`
     margin-right: 35px;
     p {
       margin-bottom: 25px;
+      @media screen and (max-width: 890px) {
+        display: block;
+      }
     }
     p:last-child {
       margin-bottom: 0;

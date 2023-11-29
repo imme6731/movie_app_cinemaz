@@ -9,11 +9,13 @@ const SFooter = styled.div`
 const InnerWrap = styled.div`
   width: 100%;
   padding: 60px 0;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   border-top: 0.5px solid white;
+  @media screen and (max-width: 640px) {
+    padding: 40px 0;
+  }
 `;
 
 const Logo = styled.h3`
@@ -21,6 +23,10 @@ const Logo = styled.h3`
   font-weight: 700;
   color: ${Colors.pointColor};
   margin-bottom: 40px;
+  @media screen and (max-width: 530px) {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
 `;
 
 const CopyRight = styled.p`

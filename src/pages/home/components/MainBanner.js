@@ -12,7 +12,15 @@ import { movieDatail, nowPlaying } from "../../../api";
 const Container = styled.section`
   width: 100%;
   height: 64vh;
-  /* background-color: salmon; */
+  @media screen and (max-width: 1024px) {
+    height: 50vh;
+  }
+  @media screen and (max-width: 640px) {
+    height: 40vh;
+  }
+  @media screen and (max-width: 530px) {
+    height: 48vh;
+  }
 `;
 
 export const MainBanner = () => {

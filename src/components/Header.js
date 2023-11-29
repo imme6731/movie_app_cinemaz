@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { Colors, PaddingValue } from "../style/GlobalStyled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilm, faHouse, faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faFilm,
+  faHouse,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
 import { useState } from "react";
@@ -26,6 +31,13 @@ const Logo = styled.h3`
   font-weight: 700;
   color: ${Colors.pointColor};
   margin-right: 85px;
+  @media screen and (max-width: 1024px) {
+    margin-right: 70px;
+  }
+  @media screen and (max-width: 890px) {
+    margin-right: 40px;
+    font-size: 32px;
+  }
 `;
 
 const MenuWrap = styled.ul`
@@ -39,6 +51,12 @@ const MenuWrap = styled.ul`
     font-weight: 500;
     margin-right: 50px;
     cursor: pointer;
+    @media screen and (max-width: 890px) {
+      p {
+        display: none;
+      }
+      margin-right: 0;
+    }
   }
 `;
 
@@ -46,6 +64,12 @@ const HeaderIcon = styled.h3`
   font-size: 22px;
   margin-right: 10px;
   cursor: pointer;
+  @media screen and (max-width: 890px) {
+    margin-right: 25px;
+  }
+  @media screen and (max-width: 530px) {
+    display: none;
+  }
 `;
 
 const RightWrap = styled.ul`
@@ -56,6 +80,22 @@ const RightWrap = styled.ul`
     margin-left: 50px;
     font-size: 16px;
     color: ${Colors.gray};
+    @media screen and (max-width: 890px) {
+      font-size: 14px;
+      margin-left: 35px;
+    }
+    @media screen and (max-width: 530px) {
+      display: none;
+    }
+  }
+`;
+
+const MobileMenu = styled.div`
+  display: none;
+  @media screen and (max-width: 530px) {
+    display: block;
+    font-size: 22px;
+    cursor: pointer;
   }
 `;
 
@@ -113,6 +153,9 @@ export const Header = () => {
         <Link to={routes.signUp}>
           <li>회원가입</li>
         </Link>
+        <MobileMenu>
+          <FontAwesomeIcon icon={faBars} />
+        </MobileMenu>
       </RightWrap>
     </SHeader>
   );
