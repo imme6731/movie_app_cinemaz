@@ -55,7 +55,7 @@ const RightWrap = styled.ul`
   li {
     margin-left: 50px;
     font-size: 16px;
-    color: #e0e0e0;
+    color: ${Colors.gray};
   }
 `;
 

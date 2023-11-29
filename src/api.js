@@ -27,6 +27,14 @@ export const upcoming = () =>
     res.json()
   );
 
+export const topRated = () =>
+  fetch(url("movie/top_rated?language=ko-KR"), options).then((res) =>
+    res.json()
+  );
+
+export const popular = () =>
+  fetch(url("movie/popular?language=ko-KR"), options).then((res) => res.json());
+
 export const movieDatail = (id) =>
   fetch(url(`movie/${id}?language=ko-KR`), options).then((res) => res.json());
 

@@ -4,7 +4,6 @@
 }
 
 .swiper-slide {
-  background: #fff;
   display: flex;
   align-items: center;
 }
@@ -18,6 +17,7 @@
 
 .swiper-button-prev,
 .swiper-button-next {
+  display: none !important;
   color: white !important;
 }
 

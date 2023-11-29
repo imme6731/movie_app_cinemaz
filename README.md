@@ -65,6 +65,8 @@
 ## new
 
 - 다른 컴퓨터에 다른 사용자 인증된 상태일 때 사용자 인증 삭제 후 재인증 해야함 (git 사용자 인증 삭제 검색 참고)
+- swiper css 작업(navigation이나 pagination) 시 !important를 입력하여 수정 가능
+- SectionBanner map 함수 오류 : Home에서 데이터를 받아오지 않았는데 실행될려했기 때문 >> &&를 앞에 작성하여 데이터가 받아왔을 때 실행되게 작업
 
 ## problem
 

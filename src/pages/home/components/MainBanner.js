@@ -12,7 +12,6 @@ import { movieDatail, nowPlaying } from "../../../api";
 const Container = styled.section`
   width: 100%;
   height: 64vh;
-  margin-bottom: 120px;
   /* background-color: salmon; */
 `;
 
