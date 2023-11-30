@@ -18,13 +18,23 @@ const SubWrap = styled.div`
   width: 240px;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  left: 22.656%;
-  bottom: 62.5vh;
+  position: relative;
+  margin-left: 22.865%;
+  margin-top: 80px;
   background-color: #3c3c3c;
   padding: 30px 40px;
+  @media screen and (max-width: 1570px) {
+    margin-left: 26.865%;
+  }
+  @media screen and (max-width: 1260px) {
+    margin-left: 32.865%;
+  }
+  @media screen and (max-width: 1024px) {
+    margin-left: 37.865%;
+  }
   @media screen and (max-width: 890px) {
-    bottom: 63.2vh;
+    margin-top: 70px;
+    margin-left: 22.865%;
   }
 `;
 

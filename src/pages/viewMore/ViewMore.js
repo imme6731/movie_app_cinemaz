@@ -19,7 +19,10 @@ const ConWrap = styled.div`
   grid-template-columns: repeat(5, 1fr);
   column-gap: 2.29%;
   row-gap: 60px;
-
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 25px;
+  }
   @media screen and (max-width: 640px) {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 25px;
@@ -30,23 +33,26 @@ const ConWrap = styled.div`
 `;
 const Con = styled.div``;
 const Bg = styled.div`
-  height: 44vh;
+  height: 434px;
   background: url(${IMG_URL}/w500/${(props) => props.$bgUrl}) no-repeat
     center/cover;
   margin-bottom: 20px;
   @media screen and (max-width: 1460px) {
-    height: 36vh;
+    height: 328px;
   }
   @media screen and (max-width: 1024px) {
-    height: 38vh;
+    height: 275px;
     margin-bottom: 15px;
   }
+  @media screen and (max-width: 860px) {
+    height: 250px;
+  }
   @media screen and (max-width: 640px) {
-    height: 38vh;
+    height: 250px;
     margin-bottom: 10px;
   }
   @media screen and (max-width: 390px) {
-    height: 23vh;
+    height: 165px;
     margin-bottom: 10px;
   }
 `;

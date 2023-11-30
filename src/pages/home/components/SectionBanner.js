@@ -51,21 +51,24 @@ const More = styled.div`
   }
 `;
 const ConBg = styled.div`
-  height: 44vh;
+  height: 434px;
   background: url(${IMG_URL}/w500/${(props) => props.$posterBg}) no-repeat
     center / cover;
   margin-bottom: 20px;
   @media screen and (max-width: 1460px) {
-    height: 36vh;
+    height: 328px;
   }
   @media screen and (max-width: 1024px) {
-    height: 30vh;
+    height: 275px;
+  }
+  @media screen and (max-width: 860px) {
+    height: 250px;
   }
   @media screen and (max-width: 640px) {
-    height: 30vh;
+    height: 250px;
   }
   @media screen and (max-width: 390px) {
-    height: 25vh;
+    height: 165px;
   }
 `;
 const MovieTitle = styled.p`
