@@ -32,9 +32,9 @@
 
 ### 11월 30일
 
-- [] Detail ui 및 api 작업
+- [x] Detail ui 및 api 작업 (반응형 해야함)
 - [] Genre UI 및 api 작업
-- [] loading UI
+- [x] loading UI
 
 ### 12월 1일
 
@@ -74,4 +74,5 @@
 ## problem
 
 - 다른 곳을 누르면 서브메뉴가 안보이게 이벤트 => 서브메뉴를 감싸는 화면 전체 컴포넌트 만든 후 감싸기
-- viewmore 오류 => useEffect 안에 location 호출 안함
+- viewmore 오류 => useEffect 안에 location 호출 안함 (location 데이터가 호출되어야 랜더링할 수 있게), state.data 뒤에 dataName을 붙여서 접근하기 쉽게 수정
+- detail 콘솔 오류 => 여러 데이터 처리 과정 중 (특히 국가, 출연진) 데이터를 다 받아오지 못한채 map을 처리할려해서 오류가 뜸. 이때 조건부랜더링 처리한다. ex) country[1]?.iso_3166_1

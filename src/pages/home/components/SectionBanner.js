@@ -64,9 +64,6 @@ const ConBg = styled.div`
   @media screen and (max-width: 860px) {
     height: 250px;
   }
-  @media screen and (max-width: 640px) {
-    height: 250px;
-  }
   @media screen and (max-width: 390px) {
     height: 165px;
   }
@@ -133,8 +130,10 @@ export const SectionBanner = ({ titleName, dataName, page }) => {
         {dataName &&
           dataName.map((data) => (
             <SwiperSlide key={data.id}>
-              <ConBg $posterBg={data.poster_path} />
-              <MovieTitle>{data.title}</MovieTitle>
+              <Link to={`/detail/${data.id}`}>
+                <ConBg $posterBg={data.poster_path} />
+                <MovieTitle>{data.title}</MovieTitle>
+              </Link>
             </SwiperSlide>
           ))}
       </Swiper>

@@ -44,3 +44,22 @@ export const genresList = () =>
   fetch(url("genre/movie/list?language=ko-KR"), options).then((res) =>
     res.json()
   );
+
+export const countries = () =>
+  fetch(url("configuration/countries?language=ko-KR"), options).then((res) =>
+    res.json()
+  );
+
+export const credits = (id) =>
+  fetch(url(`movie/${id}/credits?language=ko-KR`), options).then((res) =>
+    res.json()
+  );
+
+export const similar = (id) =>
+  fetch(url(`movie/${id}/similar?language=ko-KR`), options).then((res) =>
+    res.json()
+  );
+export const recommend = (id) =>
+  fetch(url(`movie/${id}/recommendations?language=ko-KR`), options).then(
+    (res) => res.json()
+  );

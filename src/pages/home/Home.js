@@ -3,6 +3,7 @@ import { MainBanner } from "./components/MainBanner";
 import { useEffect, useState } from "react";
 import { nowPlaying, popular, topRated, upcoming } from "../../api";
 import { SectionBanner } from "./components/SectionBanner";
+import { Loading } from "../../components/Loading";
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,7 +36,7 @@ export const Home = () => {
   return (
     <>
       {isLoading ? (
-        "loading..."
+        <Loading />
       ) : (
         <>
           {popularData && (

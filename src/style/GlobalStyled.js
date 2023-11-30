@@ -23,7 +23,7 @@ body{
     color: white;
     font-family: 'Noto Sans KR', sans-serif;
     width: 100%;
-
+    overflow-x: hidden;
 }
 
 ul, li{

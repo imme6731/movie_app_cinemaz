@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { Layout } from "../../components/Layout";
 import { IMG_URL } from "../../api";
 import { Colors } from "../../style/GlobalStyled";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 const Title = styled.h3`
@@ -81,42 +81,8 @@ export const ViewMore = () => {
   // console.log(location);
   const dataName = location.state.data.dataName;
   const titleName = location.state.title.titleName;
-  // console.log(dataName[0].title);
-  // const titleName = location.state?.title;
-  // console.log(titleName);
 
-  // const [dataResult, setDataResult] = useState();
-  // const [titleResult, setTitleResult] = useState();
-  // const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    // const dataValue = dataName;
-    // const titleValue = await titleName;
-    // console.log(dataValue);
-    // console.log(titleValue);
-    // setDataResult(dataValue);
-    // setTitleResult(titleValue);
-    // setIsLoading(true);
-  }, [location]);
-
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const dataValue = await dataName;
-  //       // const titleValue = await titleName;
-  //       // console.log(dataValue);
-  //       // console.log(titleValue);
-  //       setDataResult(dataValue);
-  //       // setTitleResult(titleValue);
-  //       setIsLoading(true);
-  //     } catch (error) {
-  //       console.log("에러:" + error);
-  //     }
-  //   })();
-  // }, []);
-
-  // console.log(dataResult);
-  // console.log(titleResult);
+  useEffect(() => {}, [location]);
 
   return (
     <Layout>
@@ -125,8 +91,10 @@ export const ViewMore = () => {
       <ConWrap>
         {dataName.map((res) => (
           <Con key={res.id}>
-            <Bg $bgUrl={res.poster_path} />
-            <MovieTitle>{res.title}</MovieTitle>
+            <Link to={`/detail/${res.id}`}>
+              <Bg $bgUrl={res.poster_path} />
+              <MovieTitle>{res.title}</MovieTitle>
+            </Link>
           </Con>
         ))}
       </ConWrap>

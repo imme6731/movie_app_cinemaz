@@ -9,7 +9,7 @@ const SMainBanner = styled.div`
   background-position-y: top;
   position: relative;
 `;
-const BlabkBg = styled.div`
+const BlackBg = styled.div`
   width: 100%;
   height: 100%;
   background: rgb(29, 29, 29);
@@ -93,7 +93,7 @@ const Tagline = styled.p`
 export const Banner = ({ data, tag }) => {
   return (
     <SMainBanner $bgUrl={data.backdrop_path}>
-      <BlabkBg />
+      <BlackBg />
       <TxtWrap>
         <Title>{data.title}</Title>
         {tag === "" ? (

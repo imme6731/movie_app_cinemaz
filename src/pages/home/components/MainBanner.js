@@ -8,6 +8,8 @@ import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
 import { Banner } from "./Banner";
 import { movieDatail, nowPlaying } from "../../../api";
+import { Link } from "react-router-dom";
+import { Loading } from "../../../components/Loading";
 
 const Container = styled.section`
   width: 100%;
@@ -58,9 +60,9 @@ export const MainBanner = () => {
   return (
     <>
       {isLoading ? (
-        "loading..."
+        <Loading />
       ) : (
-        <div>
+        <>
           {nowPlaying && (
             <>
               <Container>
@@ -70,29 +72,37 @@ export const MainBanner = () => {
                   centeredSlides={true}
                   pagination={{ clickable: true }}
                   navigation={true}
-                  //   autoplay={{ delay: 3000, disableOnInteraction: false }}
+                  autoplay={{ delay: 3000, disableOnInteraction: false }}
                   modules={[Pagination, Autoplay, Navigation]}
                 >
                   <SwiperSlide>
-                    <Banner data={nowData[0]} tag={tagData_0} />
+                    <Link to={`/detail/${nowData[0].id}`}>
+                      <Banner data={nowData[0]} tag={tagData_0} />
+                    </Link>
                   </SwiperSlide>
 
                   <SwiperSlide>
-                    <Banner data={nowData[1]} tag={tagData_1} />
+                    <Link to={`/detail/${nowData[1].id}`}>
+                      <Banner data={nowData[1]} tag={tagData_1} />
+                    </Link>
                   </SwiperSlide>
 
                   <SwiperSlide>
-                    <Banner data={nowData[2]} tag={tagData_2} />
+                    <Link to={`/detail/${nowData[2].id}`}>
+                      <Banner data={nowData[2]} tag={tagData_2} />
+                    </Link>
                   </SwiperSlide>
 
                   <SwiperSlide>
-                    <Banner data={nowData[3]} tag={tagData_3} />
+                    <Link to={`/detail/${nowData[3].id}`}>
+                      <Banner data={nowData[3]} tag={tagData_3} />
+                    </Link>
                   </SwiperSlide>
                 </Swiper>
               </Container>
             </>
           )}
-        </div>
+        </>
       )}
     </>
   );
