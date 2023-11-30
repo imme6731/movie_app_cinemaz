@@ -18,22 +18,24 @@ const options = {
 export const IMG_URL = "https://image.tmdb.org/t/p";
 
 export const nowPlaying = () =>
-  fetch(url("movie/now_playing?language=ko-KR"), options).then((res) =>
-    res.json()
+  fetch(url("movie/now_playing?language=ko-KR&region=KR"), options).then(
+    (res) => res.json()
   );
 
 export const upcoming = () =>
-  fetch(url("movie/upcoming?language=ko-KR"), options).then((res) =>
+  fetch(url("movie/upcoming?language=ko-KR&region=KR"), options).then((res) =>
     res.json()
   );
 
 export const topRated = () =>
-  fetch(url("movie/top_rated?language=ko-KR"), options).then((res) =>
+  fetch(url("movie/top_rated?language=ko-KR&region=KR"), options).then((res) =>
     res.json()
   );
 
 export const popular = () =>
-  fetch(url("movie/popular?language=ko-KR"), options).then((res) => res.json());
+  fetch(url("movie/popular?language=ko-KR&region=KR"), options).then((res) =>
+    res.json()
+  );
 
 export const movieDatail = (id) =>
   fetch(url(`movie/${id}?language=ko-KR`), options).then((res) => res.json());

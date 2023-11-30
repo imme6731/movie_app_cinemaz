@@ -45,13 +45,23 @@ export const Home = () => {
                 <SectionBanner
                   titleName={"HOT! 인기 영화"}
                   dataName={popularData}
+                  page={"popular"}
                 />
-                <SectionBanner titleName={"현재 상영작"} dataName={nowData} />
-                <SectionBanner titleName={"개봉 예정 영화"} dataName={upData} />
+                <SectionBanner
+                  titleName={"현재 상영작"}
+                  dataName={nowData}
+                  page={"now_playing"}
+                />
+                <SectionBanner
+                  titleName={"개봉 예정 영화"}
+                  dataName={upData}
+                  page={"upcoming"}
+                />
 
                 <SectionBanner
                   titleName={"믿고 보는 극찬 영화"}
                   dataName={topData}
+                  page={"top_rated"}
                 />
               </Layout>
             </>

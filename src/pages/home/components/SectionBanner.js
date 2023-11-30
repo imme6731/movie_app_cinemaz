@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { Colors } from "../../../style/GlobalStyled";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
 
 const ConWrap = styled.section`
   margin-bottom: 120px;
@@ -36,7 +37,7 @@ const Title = styled.h3`
     font-size: 24px;
   }
 `;
-const ViewMore = styled.div`
+const More = styled.div`
   display: flex;
   font-size: 16px;
   p {
@@ -110,15 +111,20 @@ const params = {
   },
 };
 
-export const SectionBanner = ({ titleName, dataName }) => {
+export const SectionBanner = ({ titleName, dataName, page }) => {
   return (
     <ConWrap>
       <TitleWrap>
         <Title>{titleName}</Title>
-        <ViewMore>
-          <p>더보기</p>
-          <FontAwesomeIcon icon={faAngleRight} />
-        </ViewMore>
+        <Link
+          to={`/viewmore/${page}`}
+          state={{ title: { titleName }, data: { dataName } }}
+        >
+          <More>
+            <p>더보기</p>
+            <FontAwesomeIcon icon={faAngleRight} />
+          </More>
+        </Link>
       </TitleWrap>
       <Swiper {...params}>
         {dataName &&

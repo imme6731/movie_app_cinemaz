@@ -46,6 +46,7 @@ const MenuWrap = styled.ul`
 
   li {
     display: flex;
+
     align-items: center;
     font-size: 20px;
     font-weight: 500;
@@ -100,7 +101,7 @@ const MobileMenu = styled.div`
 `;
 
 export const Header = () => {
-  const [view, setView] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   // console.log(view);
 
@@ -124,14 +125,14 @@ export const Header = () => {
           </li>
           <li
             onClick={() => {
-              setView(!view);
+              setIsOpen(!isOpen);
             }}
           >
             <HeaderIcon>
               <FontAwesomeIcon icon={faFilm} />
             </HeaderIcon>
             <p>영화</p>
-            {view && <SubMenu />}
+            {isOpen && <SubMenu />}
           </li>
           <li>
             <HeaderIcon>

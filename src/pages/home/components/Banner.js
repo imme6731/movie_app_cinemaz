@@ -6,6 +6,7 @@ const SMainBanner = styled.div`
   /* background-color: lightgreen; */
   background: url(${IMG_URL}/original/${(props) => props.$bgUrl}) no-repeat
     center / cover;
+  background-position-y: top;
   position: relative;
 `;
 const BlabkBg = styled.div`
@@ -14,9 +15,11 @@ const BlabkBg = styled.div`
   background: rgb(29, 29, 29);
   background: linear-gradient(
     0deg,
-    rgba(29, 29, 29, 1) 15%,
-    rgba(29, 29, 29, 0.7007396708683473) 52%,
-    rgba(29, 29, 29, 0) 100%
+    rgba(29, 29, 29, 1) 5%,
+    rgba(29, 29, 29, 0.8) 20%,
+    rgba(29, 29, 29, 0.6) 31%,
+    rgba(29, 29, 29, 0.2) 60%,
+    rgba(29, 29, 29, 0) 89%
   );
   position: absolute;
   top: 0;
@@ -32,7 +35,7 @@ const TxtWrap = styled.div`
     padding: 21vh 0 0 6.812%;
   }
   @media screen and (max-width: 530px) {
-    padding: 32vh 0 0 6.812%;
+    padding: 30vh 0 0 6.812%;
   }
 `;
 const Title = styled.h3`
@@ -41,6 +44,7 @@ const Title = styled.h3`
   font-size: 64px;
   font-weight: 700;
   margin-bottom: 30px;
+  line-height: 1.2;
   @media screen and (max-width: 1024px) {
     font-size: 48px;
     margin-bottom: 25px;

@@ -6,7 +6,7 @@
 - [] 폼 관련
 - [] 타이틑 관련
 - [x] 폰트어썸
-- [] swiper
+- [x] swiper
 
 ## todo
 
@@ -26,13 +26,14 @@
 ### 11월 29일
 
 - [x] 서브 메뉴 UI 및 api 작업
-- [] Home ui 및 api 작업 - swiper 작업
+- [x] Home ui 및 api 작업 - swiper 작업
 - [x] Home ui 및 api 작업 - 섹션 UI 및 api
-- [] View more UI 및 api 작업
+- [x] View more UI 및 api 작업
 
 ### 11월 30일
 
 - [] Detail ui 및 api 작업
+- [] Genre UI 및 api 작업
 - [] loading UI
 
 ### 12월 1일
@@ -68,7 +69,9 @@
 - 다른 컴퓨터에 다른 사용자 인증된 상태일 때 사용자 인증 삭제 후 재인증 해야함 (git 사용자 인증 삭제 검색 참고)
 - swiper css 작업(navigation이나 pagination) 시 !important를 입력하여 수정 가능
 - SectionBanner map 함수 오류 : Home에서 데이터를 받아오지 않았는데 실행될려했기 때문 >> &&를 앞에 작성하여 데이터가 받아왔을 때 실행되게 작업
+- 컴포넌트 > 컴포넌트 데이터를 Link로 받아오기 : state, useLocation 사용
 
 ## problem
 
-- 영화 메뉴 클릭 후 다른 메뉴 누르면 페이지 이동하고 나서 서브메뉴가 그대로 보임
+- 다른 곳을 누르면 서브메뉴가 안보이게 이벤트 => 서브메뉴를 감싸는 화면 전체 컴포넌트 만든 후 감싸기
+- viewmore 오류 => useEffect 안에 location 호출 안함
