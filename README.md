@@ -3,7 +3,7 @@
 - [x] styled-components
 - [x] react-router-dom
 - [x] styled-reset
-- [] 폼 관련
+- [x] 폼 관련
 - [] 타이틑 관련
 - [x] 폰트어썸
 - [x] swiper
@@ -33,12 +33,12 @@
 ### 11월 30일
 
 - [x] Detail ui 및 api 작업 (반응형 해야함)
-- [] Genre UI 및 api 작업
+- [x] Genre UI 및 api 작업 (시간 여유 있으면 인기순, 개봉순 등등 작업)
 - [x] loading UI
 
 ### 12월 1일
 
-- [] Search ui 및 api 작업
+- [x] Search ui 및 api 작업 (트렌딩 컴포, 반응형)
 - [] Login UI 작업
 
 ### 12월 2일
@@ -76,3 +76,6 @@
 - 다른 곳을 누르면 서브메뉴가 안보이게 이벤트 => 서브메뉴를 감싸는 화면 전체 컴포넌트 만든 후 감싸기
 - viewmore 오류 => useEffect 안에 location 호출 안함 (location 데이터가 호출되어야 랜더링할 수 있게), state.data 뒤에 dataName을 붙여서 접근하기 쉽게 수정
 - detail 콘솔 오류 => 여러 데이터 처리 과정 중 (특히 국가, 출연진) 데이터를 다 받아오지 못한채 map을 처리할려해서 오류가 뜸. 이때 조건부랜더링 처리한다. ex) country[1]?.iso_3166_1
+- detail 페이지 아래 영화 섹션 값이 있을때만 나오게 ?? => 배열 length 아용
+- detail 페이지 국가, 출연 데이터 값 로딩 따로 걸림 => api 사이트자체 문제ㅜㅜ
+- genre 페이지 데이터 값 호출안됨 => api 입력 시 fetch에 중괄호 침....바보 (search할때도 동일하게 작성해서 안되는걸 깨달음 정신체리)

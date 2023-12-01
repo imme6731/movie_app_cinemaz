@@ -1,9 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faArrowUpFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { styled } from "styled-components";
 import { Colors, PaddingValue } from "../../../style/GlobalStyled";
 import { IMG_URL } from "../../../api";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { Loading } from "../../../components/Loading";
 
 const Container = styled.section`
   width: 100%;
@@ -75,7 +79,7 @@ const BtnWrap = styled.ul`
     align-items: center;
   }
   & li:first-child {
-    margin-right: 20px;
+    margin-right: 30px;
   }
   & li > p {
     font-size: 16px;
@@ -108,9 +112,12 @@ const Genre = styled.li`
   & ul {
     font-size: 18px;
     color: ${Colors.gray};
-    li {
-      margin-bottom: 10px;
-    }
+    display: flex;
+  }
+  & ul > li {
+    margin-right: 10px;
+    display: block;
+    margin-bottom: 0;
   }
 `;
 const Nation = styled.li`
@@ -156,73 +163,147 @@ const PosterImg = styled.div`
 `;
 
 export const MainDetail = ({ val, year, nat1, nat2, act }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [heartIcon, setHeartIcon] = useState(false);
+  const [nat1Len, setNat1Len] = useState();
+  const [actLen, setActLen] = useState();
+  const [genreLen, setGenreLen] = useState();
+
+  const hadnleCopyClipBoard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      alert("클립보드에 링크가 복사되었습니다.");
+    } catch (error) {
+      console.log("에러:" + error);
+    }
+  };
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsLoading(false);
+    setNat1Len(nat1?.length);
+    setActLen(act?.length);
+    setGenreLen(val?.genres);
+  }, [val, year, nat1, nat2, act]);
+
   return (
-    <Container>
-      <Bg $Bg={val.backdrop_path}>
-        <BlackBg />
-      </Bg>
-      <InnerCon>
-        <TxtWrap>
-          <MainTxt>
-            <Title>{val.title}</Title>
-            <BoxDesc>
-              <li>{year}</li>
-              <li>{val.genres[0].name}</li>
-              <li>{val.runtime}분</li>
-            </BoxDesc>
-            <BtnWrap>
-              <li>
-                <FontAwesomeIcon icon={faHeart} />
-                <p>찜</p>
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faArrowUpFromBracket} />
-                <p>공유</p>
-              </li>
-            </BtnWrap>
-          </MainTxt>
-          <DescTxt>
-            <Basic>
-              <h3>기본 정보</h3>
-              <Release>
-                <h4>개봉연도</h4>
-                <p>{year}년</p>
-              </Release>
-              <Genre>
-                <h4>장르</h4>
-                <ul>
-                  {val.genres &&
-                    val.genres.map((gen) => <li key={gen.id}>{gen.name}</li>)}
-                </ul>
-              </Genre>
-              <Nation>
-                <h4>국가</h4>
-                <p>{nat1}</p>
-                <p>{nat2}</p>
-              </Nation>
-              <RunTime>
-                <h4>런타임</h4>
-                <p>{val.runtime}분</p>
-              </RunTime>
-              <VoteAvg>
-                <h4>평점</h4>
-                <p>{Math.round(val.vote_average)}점</p>
-              </VoteAvg>
-            </Basic>
-            <Overview>
-              <h3>줄거리</h3>
-              <p>{val.overview}</p>
-            </Overview>
-            <Credits>
-              <h3>출연</h3>
-              <ul>
-                {act && act.map((per) => <li key={per.id}>{per.name}</li>)}
-              </ul>
-            </Credits>
-          </DescTxt>
-        </TxtWrap>
-        <PosterImg $poster={val.poster_path}></PosterImg>
-      </InnerCon>
-    </Container>
+    <>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Container>
+          <Bg $Bg={val.backdrop_path}>
+            <BlackBg />
+          </Bg>
+          <InnerCon>
+            <TxtWrap>
+              <MainTxt>
+                <Title>{val.title}</Title>
+                <BoxDesc>
+                  {year && <li>{year}</li>}
+                  <li>{val.genres[0].name}</li>
+                  {val.runtime !== 0 && <li>{val.runtime}분</li>}
+                </BoxDesc>
+                <BtnWrap>
+                  <li
+                    onClick={() => {
+                      setHeartIcon(!heartIcon);
+                    }}
+                  >
+                    {heartIcon ? (
+                      <FontAwesomeIcon
+                        icon={solidHeart}
+                        style={{ color: "crimson" }}
+                      />
+                    ) : (
+                      <FontAwesomeIcon icon={regularHeart} />
+                    )}
+                    <p>찜</p>
+                  </li>
+                  <li
+                    onClick={() =>
+                      hadnleCopyClipBoard(
+                        `http://localhost:3000/${location.pathname}`
+                      )
+                    }
+                  >
+                    <FontAwesomeIcon icon={faArrowUpFromBracket} />
+                    <p>공유</p>
+                  </li>
+                </BtnWrap>
+              </MainTxt>
+              <DescTxt>
+                <Basic>
+                  <h3>기본 정보</h3>
+                  {year && (
+                    <Release>
+                      <h4>개봉연도</h4>
+                      <p>{year}년</p>
+                    </Release>
+                  )}
+                  {genreLen !== 0 && (
+                    <Genre>
+                      <h4>장르</h4>
+                      <ul>
+                        {val.genres &&
+                          val.genres.map((gen) => (
+                            <li key={gen.id}>{gen.name}</li>
+                          ))}
+                      </ul>
+                    </Genre>
+                  )}
+                  {nat1Len !== 0 && (
+                    <Nation>
+                      <h4>국가</h4>
+                      {isLoading ? (
+                        "loading..."
+                      ) : (
+                        <>
+                          <p>{nat1}</p>
+                          <p>{nat2}</p>
+                        </>
+                      )}
+                    </Nation>
+                  )}
+                  {val.runtime !== 0 && (
+                    <RunTime>
+                      <h4>런타임</h4>
+                      <p>{val.runtime}분</p>
+                    </RunTime>
+                  )}
+                  {val.vote_average !== 0 && (
+                    <VoteAvg>
+                      <h4>평점</h4>
+                      <p>{Math.round(val.vote_average)}점</p>
+                    </VoteAvg>
+                  )}
+                </Basic>
+                {val.overview && (
+                  <Overview>
+                    <h3>줄거리</h3>
+                    <p>{val.overview}</p>
+                  </Overview>
+                )}
+                {actLen !== 0 && (
+                  <Credits>
+                    <h3>출연</h3>
+                    {isLoading ? (
+                      "loading"
+                    ) : (
+                      <ul>
+                        {act &&
+                          act.map((per) => <li key={per.id}>{per.name}</li>)}
+                      </ul>
+                    )}
+                  </Credits>
+                )}
+              </DescTxt>
+            </TxtWrap>
+            <PosterImg $poster={val.poster_path}></PosterImg>
+          </InnerCon>
+        </Container>
+      )}
+    </>
   );
 };

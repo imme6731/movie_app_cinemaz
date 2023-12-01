@@ -15,7 +15,9 @@ export const Detail = () => {
   const [conList_2, setConList_2] = useState();
   const [actor, setActor] = useState();
   const [sim, setSim] = useState();
+  const [simLength, setSimLength] = useState();
   const [recom, setRecom] = useState();
+  const [recomLength, setRecomLength] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -43,13 +45,15 @@ export const Detail = () => {
         );
 
         const { cast } = await credits(id);
-        setActor(cast.slice(cast.length - 3));
+        setActor(cast.slice(0, 3));
 
         const { results: similarRes } = await similar(id);
         setSim(similarRes);
+        setSimLength(similarRes.length);
 
         const { results: recommedRes } = await recommend(id);
         setRecom(recommedRes);
+        setRecomLength(recommedRes.length);
       } catch (error) {
         console.log("에러:" + error);
       }
@@ -72,16 +76,24 @@ export const Detail = () => {
                 act={actor}
               />
               <Layout>
-                <SectionBanner
-                  titleName={"추천 영화"}
-                  dataName={recom}
-                  page={"recommendations"}
-                />
-                <SectionBanner
-                  titleName={"유사한 영화"}
-                  dataName={sim}
-                  page={"similar"}
-                />
+                {recomLength === 0 ? (
+                  ""
+                ) : (
+                  <SectionBanner
+                    titleName={"추천 영화"}
+                    dataName={recom}
+                    page={"recommendations"}
+                  />
+                )}
+                {simLength === 0 ? (
+                  ""
+                ) : (
+                  <SectionBanner
+                    titleName={"유사한 영화"}
+                    dataName={sim}
+                    page={"similar"}
+                  />
+                )}
               </Layout>
             </>
           )}

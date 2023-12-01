@@ -63,3 +63,16 @@ export const recommend = (id) =>
   fetch(url(`movie/${id}/recommendations?language=ko-KR`), options).then(
     (res) => res.json()
   );
+
+export const discover = (id) =>
+  fetch(
+    url(
+      `discover/movie?include_adult=false&include_video=false&language=ko-KR&page=1&sort_by=popularity.desc&with_genres=${id}`
+    ),
+    options
+  ).then((res) => res.json());
+
+export const movieSearch = (input) =>
+  fetch(url(`search/movie?query=${input}&language=ko-KR`), options).then(
+    (res) => res.json()
+  );

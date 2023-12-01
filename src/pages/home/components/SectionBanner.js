@@ -113,30 +113,34 @@ const params = {
 
 export const SectionBanner = ({ titleName, dataName, page }) => {
   return (
-    <ConWrap>
-      <TitleWrap>
-        <Title>{titleName}</Title>
-        <Link
-          to={`/viewmore/${page}`}
-          state={{ title: { titleName }, data: { dataName } }}
-        >
-          <More>
-            <p>더보기</p>
-            <FontAwesomeIcon icon={faAngleRight} />
-          </More>
-        </Link>
-      </TitleWrap>
-      <Swiper {...params}>
-        {dataName &&
-          dataName.map((data) => (
-            <SwiperSlide key={data.id}>
-              <Link to={`/detail/${data.id}`}>
-                <ConBg $posterBg={data.poster_path} />
-                <MovieTitle>{data.title}</MovieTitle>
-              </Link>
-            </SwiperSlide>
-          ))}
-      </Swiper>
-    </ConWrap>
+    <>
+      {dataName && (
+        <ConWrap>
+          <TitleWrap>
+            <Title>{titleName}</Title>
+            <Link
+              to={`/viewmore/${page}`}
+              state={{ title: { titleName }, data: { dataName } }}
+            >
+              <More>
+                <p>더보기</p>
+                <FontAwesomeIcon icon={faAngleRight} />
+              </More>
+            </Link>
+          </TitleWrap>
+          <Swiper {...params}>
+            {dataName &&
+              dataName.map((data) => (
+                <SwiperSlide key={data.id}>
+                  <Link to={`/detail/${data.id}`}>
+                    <ConBg $posterBg={data.poster_path} />
+                    <MovieTitle>{data.title}</MovieTitle>
+                  </Link>
+                </SwiperSlide>
+              ))}
+          </Swiper>
+        </ConWrap>
+      )}
+    </>
   );
 };
