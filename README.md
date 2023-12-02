@@ -38,11 +38,13 @@
 
 ### 12월 1일
 
-- [x] Search ui 및 api 작업 (트렌딩 컴포, 반응형)
-- [] Login UI 작업
+- [x] Search ui 및 api 작업 (트렌딩 컴포, 반응형 해야함)
+- [x] Genre Ui 및 api 작업
+- [x] Detail 데이터 null 값 수정
 
 ### 12월 2일
 
+- [] Login UI 작업
 - [] SignUp UI 작업
 - [] 404 페이지 UI 구성
 - [] 전체 페이지 helmet 구성
