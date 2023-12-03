@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SubMenu } from "./SubMenu";
 import { genresList } from "../api";
 
@@ -46,6 +46,24 @@ export const Header = () => {
   const [menuLeft, setMenuLeft] = useState("100%");
   const [openGenre, setOpenGenre] = useState("-22%");
   const [opPer, setOpPer] = useState(0);
+  const [list, setList] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  const headerRef = useRef();
+
+  const scrollHandler = () => {
+    const pageY = window.scrollY;
+
+    if (pageY > 100) {
+      headerRef.current.style.position = "fixed";
+      headerRef.current.style.backgroundColor = "rgba(29,29,29,0.8)";
+      headerRef.current.style.backdropFilter = "blur(2px)";
+    } else {
+      headerRef.current.style.position = "relative";
+      headerRef.current.style.backgroundColor = "transparent";
+      headerRef.current.style.backdropFilter = "blur(0px)";
+    }
+  };
 
   const onClickMenu = () => {
     menuLeft === "100%" ? setMenuLeft(0) : setMenuLeft("100%");
@@ -73,9 +91,6 @@ export const Header = () => {
     }
   };
 
-  const [list, setList] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     (async () => {
       try {
@@ -83,6 +98,7 @@ export const Header = () => {
 
         setList(genres);
         setIsLoading(false);
+        return window.addEventListener("scroll", scrollHandler);
       } catch (error) {
         console.log("에러: " + error);
       }
@@ -90,7 +106,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <SHeader>
+    <SHeader ref={headerRef}>
       <LeftWrap>
         <Link to={routes.home}>
           <Logo>CINEMAZ</Logo>

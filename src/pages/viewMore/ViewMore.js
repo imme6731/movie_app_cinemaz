@@ -5,6 +5,7 @@ import { Colors } from "../../style/GlobalStyled";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { PageTitle } from "../../components/PageTitle";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 const Title = styled.h3`
   font-size: 32px;
@@ -78,6 +79,7 @@ const MovieTitle = styled.p`
 `;
 
 export const ViewMore = () => {
+  useScrollTop();
   const location = useLocation();
   // console.log(location);
   const dataName = location.state.data.dataName;

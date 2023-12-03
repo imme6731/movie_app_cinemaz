@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Loading } from "../../components/Loading";
 import { PageTitle } from "../../components/PageTitle";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 const Title = styled.h3`
   font-size: 32px;
@@ -101,6 +102,8 @@ export const Genre = () => {
       }
     })();
   }, [id]);
+
+  useScrollTop();
 
   return (
     <>

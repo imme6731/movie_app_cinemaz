@@ -6,6 +6,7 @@ import { MainDetail } from "./components/MainDetail";
 import { Loading } from "../../components/Loading";
 import { SectionBanner } from "../home/components/SectionBanner";
 import { PageTitle } from "../../components/PageTitle";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 export const Detail = () => {
   const { id } = useParams();
@@ -60,6 +61,8 @@ export const Detail = () => {
       }
     })();
   }, [id]);
+
+  useScrollTop();
 
   return (
     <>

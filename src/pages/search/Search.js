@@ -10,6 +10,7 @@ import { IMG_URL, movieSearch } from "../../api";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { PageTitle } from "../../components/PageTitle";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 const Container = styled.div`
   width: 100%;
@@ -125,6 +126,7 @@ const ErrorMessage = styled.div`
 `;
 
 export const Search = () => {
+  useScrollTop();
   const {
     register,
     handleSubmit,

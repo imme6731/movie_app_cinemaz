@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { routes } from "../../routes";
 import { Colors } from "../../style/GlobalStyled";
 import { PageTitle } from "../../components/PageTitle";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 const LoginWrap = styled.div`
   display: flex;
@@ -134,6 +135,7 @@ const SignUpGo = styled.div`
 `;
 
 export const Login = () => {
+  useScrollTop();
   const {
     register,
     handleSubmit,

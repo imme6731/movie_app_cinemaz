@@ -5,6 +5,7 @@ import { nowPlaying, popular, topRated, upcoming } from "../../api";
 import { SectionBanner } from "./components/SectionBanner";
 import { Loading } from "../../components/Loading";
 import { PageTitle } from "../../components/PageTitle";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,6 +13,8 @@ export const Home = () => {
   const [nowData, setNowData] = useState();
   const [upData, setUpData] = useState();
   const [topData, setTopData] = useState();
+
+  useScrollTop();
 
   useEffect(() => {
     (async () => {

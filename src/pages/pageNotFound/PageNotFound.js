@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import { ReactComponent as ErrorImg } from "../../assets/404 Logo.svg";
 import { Colors } from "../../style/GlobalStyled";
 import { Link } from "react-router-dom";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 const Container = styled.div`
   width: 100%;
@@ -40,6 +41,7 @@ const Button = styled.button`
   color: ${Colors.pointColor};
 `;
 export const PageNotFound = () => {
+  useScrollTop();
   return (
     <Container>
       <ErrorImg

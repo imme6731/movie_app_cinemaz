@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { ErrorMsg } from "../login/components/ErrorMsg";
 import { useNavigate } from "react-router-dom";
 import { PageTitle } from "../../components/PageTitle";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 const SignUpWrap = styled.div`
   display: flex;
@@ -76,6 +77,7 @@ const Txt = styled.p`
 
 export const SignUp = () => {
   const nav = useNavigate();
+  useScrollTop();
 
   const {
     register,
