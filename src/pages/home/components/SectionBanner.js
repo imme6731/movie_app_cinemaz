@@ -50,6 +50,7 @@ const More = styled.div`
     }
   }
 `;
+
 const ConBg = styled.div`
   height: 434px;
   background: url(${IMG_URL}/w500/${(props) => props.$posterBg}) no-repeat
