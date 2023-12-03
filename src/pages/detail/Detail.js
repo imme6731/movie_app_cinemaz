@@ -63,7 +63,7 @@ export const Detail = () => {
 
   return (
     <>
-      <PageTitle titlename={` | ${value.title}`} />
+      <PageTitle titlename={` | ${value?.title}`} />
       {isLoading ? (
         <Loading />
       ) : (

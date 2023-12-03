@@ -46,8 +46,8 @@
 
 - [x] Login UI 작업
 - [x] SignUp UI 작업
-- [] 404 페이지 UI 구성
-- [] 전체 페이지 helmet 구성
+- [x] 404 페이지 UI 구성
+- [x] 전체 페이지 helmet 구성
 
 ### 12월 3일
 
@@ -72,6 +72,7 @@
 - swiper css 작업(navigation이나 pagination) 시 !important를 입력하여 수정 가능
 - SectionBanner map 함수 오류 : Home에서 데이터를 받아오지 않았는데 실행될려했기 때문 >> &&를 앞에 작성하여 데이터가 받아왔을 때 실행되게 작업
 - 컴포넌트 > 컴포넌트 데이터를 Link로 받아오기 : state, useLocation 사용
+- svg import 해서 사용하기 >>> 피그마 svg import 시 발생하는 에러 있음 => jsx 문법때문, nametag를 jsx 형식으로 바꿔줘야함
 
 ## problem
 

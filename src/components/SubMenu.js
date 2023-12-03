@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import { useEffect, useState } from "react";
 import { genresList } from "../api";
 import { Link } from "react-router-dom";
+import { Colors } from "../style/GlobalStyled";
 
 const Container = styled.div`
   width: 100%;
@@ -15,7 +16,7 @@ const Container = styled.div`
 `;
 
 const SubWrap = styled.div`
-  width: 240px;
+  width: 280px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -36,6 +37,16 @@ const SubWrap = styled.div`
     margin-top: 70px;
     margin-left: 22.865%;
   }
+
+  @keyframes dropdown {
+    0% {
+      transform: translateY(-10%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  animation: dropdown 0.4s ease;
 `;
 
 const SSubMenu = styled.div`
@@ -46,6 +57,7 @@ const SSubMenu = styled.div`
     font-weight: 500;
     margin-bottom: 30px;
     cursor: default;
+    color: ${Colors.gray};
   }
   ul {
     display: flex;
@@ -54,8 +66,8 @@ const SSubMenu = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-size: 16px;
-    margin-right: 35px;
+    font-size: 18px;
+    margin-right: 45px;
     p {
       margin-bottom: 25px;
       @media screen and (max-width: 890px) {
