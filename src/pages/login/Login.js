@@ -5,6 +5,7 @@ import { Button } from "./components/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { routes } from "../../routes";
 import { Colors } from "../../style/GlobalStyled";
+import { PageTitle } from "../../components/PageTitle";
 
 const LoginWrap = styled.div`
   display: flex;
@@ -147,6 +148,7 @@ export const Login = () => {
 
   return (
     <LoginWrap>
+      <PageTitle titlename={` | Login`} />
       <Form onSubmit={handleSubmit(Submit)}>
         <Title>Login</Title>
         <Input

@@ -4,7 +4,7 @@
 - [x] react-router-dom
 - [x] styled-reset
 - [x] 폼 관련
-- [] 타이틑 관련
+- [x] 타이틑 관련
 - [x] 폰트어썸
 - [x] swiper
 
@@ -44,8 +44,8 @@
 
 ### 12월 2일
 
-- [] Login UI 작업
-- [] SignUp UI 작업
+- [x] Login UI 작업
+- [x] SignUp UI 작업
 - [] 404 페이지 UI 구성
 - [] 전체 페이지 helmet 구성
 

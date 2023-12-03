@@ -4,6 +4,7 @@ import { IMG_URL } from "../../api";
 import { Colors } from "../../style/GlobalStyled";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { PageTitle } from "../../components/PageTitle";
 
 const Title = styled.h3`
   font-size: 32px;
@@ -86,6 +87,7 @@ export const ViewMore = () => {
 
   return (
     <Layout>
+      <PageTitle titlename={` | ${titleName}`} />
       <Title>{titleName}</Title>
 
       <ConWrap>

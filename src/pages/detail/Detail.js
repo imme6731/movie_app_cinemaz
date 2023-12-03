@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { MainDetail } from "./components/MainDetail";
 import { Loading } from "../../components/Loading";
 import { SectionBanner } from "../home/components/SectionBanner";
+import { PageTitle } from "../../components/PageTitle";
 
 export const Detail = () => {
   const { id } = useParams();
@@ -62,6 +63,7 @@ export const Detail = () => {
 
   return (
     <>
+      <PageTitle titlename={` | ${value.title}`} />
       {isLoading ? (
         <Loading />
       ) : (

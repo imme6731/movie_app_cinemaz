@@ -3,6 +3,7 @@ import { Button } from "../login/components/Button";
 import { useForm } from "react-hook-form";
 import { ErrorMsg } from "../login/components/ErrorMsg";
 import { useNavigate } from "react-router-dom";
+import { PageTitle } from "../../components/PageTitle";
 
 const SignUpWrap = styled.div`
   display: flex;
@@ -89,6 +90,7 @@ export const SignUp = () => {
 
   return (
     <SignUpWrap>
+      <PageTitle titlename={` | SignUp`} />
       <Form onSubmit={handleSubmit(Submit)}>
         <Title>Sign Up</Title>
         <SubTitle>아이디와 이메일로 간편하게 시작하세요!</SubTitle>

@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { IMG_URL, movieSearch } from "../../api";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { PageTitle } from "../../components/PageTitle";
 
 const Container = styled.div`
   width: 100%;
@@ -149,6 +150,7 @@ export const Search = () => {
 
   return (
     <Container>
+      <PageTitle titlename={` | Search`} />
       <Form onSubmit={handleSubmit(searchHandler)}>
         <Input
           {...register("search", {

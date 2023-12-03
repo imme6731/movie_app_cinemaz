@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { nowPlaying, popular, topRated, upcoming } from "../../api";
 import { SectionBanner } from "./components/SectionBanner";
 import { Loading } from "../../components/Loading";
+import { PageTitle } from "../../components/PageTitle";
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,6 +36,7 @@ export const Home = () => {
 
   return (
     <>
+      <PageTitle titlename={` | Home`} />
       {isLoading ? (
         <Loading />
       ) : (

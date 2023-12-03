@@ -5,6 +5,7 @@ import { Colors } from "../../style/GlobalStyled";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Loading } from "../../components/Loading";
+import { PageTitle } from "../../components/PageTitle";
 
 const Title = styled.h3`
   font-size: 32px;
@@ -103,6 +104,7 @@ export const Genre = () => {
 
   return (
     <>
+      <PageTitle titlename={` | ${title}`} />
       {isLoading ? (
         <Loading />
       ) : (
