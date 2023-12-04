@@ -40,6 +40,7 @@ import {
   Wrap,
   GenreList,
 } from "./headerStyled";
+import { Loading } from "./Loading";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -157,7 +158,11 @@ export const Header = () => {
         <MobileMenu onClick={onClickMenu}>
           <FontAwesomeIcon icon={faBars} />
         </MobileMenu>
+      </RightWrap>
 
+      {isLoading ? (
+        <Loading />
+      ) : (
         <MovileSlideMenu $left={menuLeft}>
           <Container>
             <MHeader>
@@ -205,82 +210,62 @@ export const Header = () => {
                   <FontAwesomeIcon icon={faChevronDown} />
                 </Right>
               </MovieTap>
-              {/* <MobileGenreMenu
-                bottomVal={openGenre}
-                opVal={opPer}
-            
-              ></MobileGenreMenu> */}
 
-              {isLoading ? (
-                ""
-              ) : (
-                <>
-                  {genresList && (
-                    <Wrap $bottom={openGenre} $opacity={opPer}>
-                      <GenreList>
-                        <li>
-                          <Link to={`/genre/${list[0].id}`} onClick={closeMenu}>
-                            • {list[0].name}
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to={`/genre/${list[2].id}`} onClick={closeMenu}>
-                            • {list[2].name}
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to={`/genre/${list[3].id}`} onClick={closeMenu}>
-                            • {list[3].name}
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to={`/genre/${list[5].id}`} onClick={closeMenu}>
-                            • {list[5].name}
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to={`/genre/${list[7].id}`} onClick={closeMenu}>
-                            • {list[7].name}
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to={`/genre/${list[8].id}`} onClick={closeMenu}>
-                            • {list[8].name}
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to={`/genre/${list[10].id}`}
-                            onClick={closeMenu}
-                          >
-                            • {list[10].name}
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to={`/genre/${list[11].id}`}
-                            onClick={closeMenu}
-                          >
-                            • {list[11].name}
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to={`/genre/${list[13].id}`}
-                            onClick={closeMenu}
-                          >
-                            • {list[13].name}
-                          </Link>
-                        </li>
-                      </GenreList>
-                    </Wrap>
-                  )}
-                </>
+              {genresList && (
+                <Wrap $bottom={openGenre} $opacity={opPer}>
+                  <GenreList>
+                    <li>
+                      <Link to={`/genre/${list[0].id}`} onClick={closeMenu}>
+                        • {list[0].name}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={`/genre/${list[2].id}`} onClick={closeMenu}>
+                        • {list[2].name}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={`/genre/${list[3].id}`} onClick={closeMenu}>
+                        • {list[3].name}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={`/genre/${list[5].id}`} onClick={closeMenu}>
+                        • {list[5].name}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={`/genre/${list[7].id}`} onClick={closeMenu}>
+                        • {list[7].name}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={`/genre/${list[8].id}`} onClick={closeMenu}>
+                        • {list[8].name}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={`/genre/${list[10].id}`} onClick={closeMenu}>
+                        • {list[10].name}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={`/genre/${list[11].id}`} onClick={closeMenu}>
+                        • {list[11].name}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={`/genre/${list[13].id}`} onClick={closeMenu}>
+                        • {list[13].name}
+                      </Link>
+                    </li>
+                  </GenreList>
+                </Wrap>
               )}
             </Section2>
           </Container>
         </MovileSlideMenu>
-      </RightWrap>
+      )}
     </SHeader>
   );
 };

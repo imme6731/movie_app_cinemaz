@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { PageTitle } from "../../components/PageTitle";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { Trending } from "./components/Trending";
+import { NoImg } from "../../components/NoImg";
 
 const Container = styled.div`
   width: 100%;
@@ -205,7 +206,12 @@ export const Search = () => {
                   term.map((data) => (
                     <Con key={data.id}>
                       <Link to={`/detail/${data.id}}`}>
-                        <Bg $bgUrl={data.poster_path} />
+                        {data.poster_path ? (
+                          <Bg $bgUrl={data.poster_path} />
+                        ) : (
+                          <NoImg />
+                        )}
+
                         <MovieTitle>{data.title}</MovieTitle>
                       </Link>
                     </Con>

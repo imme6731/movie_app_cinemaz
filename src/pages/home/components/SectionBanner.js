@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { Colors } from "../../../style/GlobalStyled";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Link } from "react-router-dom";
 import "../style/mainbanner.css";
+import { Link } from "react-router-dom";
+import { NoImg } from "../../../components/NoImg";
 
 const ConWrap = styled.section`
   margin-bottom: 120px;
@@ -135,7 +136,11 @@ export const SectionBanner = ({ titleName, dataName, page }) => {
               dataName.map((data) => (
                 <SwiperSlide key={data.id} className="hover">
                   <Link to={`/detail/${data.id}`}>
-                    <ConBg $posterBg={data.poster_path} />
+                    {data.poster_path ? (
+                      <ConBg $posterBg={data.poster_path} />
+                    ) : (
+                      <NoImg />
+                    )}
                     <MovieTitle>{data.title}</MovieTitle>
                   </Link>
                 </SwiperSlide>

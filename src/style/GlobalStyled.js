@@ -24,6 +24,7 @@ body{
     font-family: 'Noto Sans KR', sans-serif;
     width: 100%;
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 ul, li{

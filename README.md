@@ -58,9 +58,9 @@
 
 ### 12월 4일
 
-- [] 반응형 작업 (detail[], search[v], 404[v])
+- [x] 반응형 작업 (detail[x], search[v], 404[v])
 - [x] search 트렌딩 api 작업
-- [] noImg 작업
+- [x] noImg 작업
 - 마무리 컨펌 및 수정
 - 배포 테스트 1차
 

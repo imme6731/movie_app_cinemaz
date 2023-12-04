@@ -6,6 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { PageTitle } from "../../components/PageTitle";
 import { useScrollTop } from "../../lib/useScrollTop";
+import { NoImg } from "../../components/NoImg";
 
 const Title = styled.h3`
   font-size: 32px;
@@ -100,7 +101,8 @@ export const ViewMore = () => {
         {dataName.map((res) => (
           <Con key={res.id}>
             <Link to={`/detail/${res.id}`}>
-              <Bg $bgUrl={res.poster_path} />
+              {res.poster_path ? <Bg $bgUrl={res.poster_path} /> : <NoImg />}
+
               <MovieTitle>{res.title}</MovieTitle>
             </Link>
           </Con>

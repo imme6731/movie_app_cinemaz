@@ -13,6 +13,7 @@ const Container = styled.div`
   @media screen and (max-width: 530px) {
     display: none;
   }
+  z-index: 900;
 `;
 
 const SubWrap = styled.div`
@@ -37,6 +38,9 @@ const SubWrap = styled.div`
     margin-top: 70px;
     margin-left: 22.865%;
   }
+  @media screen and (max-width: 530px) {
+    display: none;
+  }
 
   @keyframes dropdown {
     0% {
@@ -52,15 +56,24 @@ const SubWrap = styled.div`
 const SSubMenu = styled.div`
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 530px) {
+    display: none;
+  }
   h4 {
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 30px;
     cursor: default;
     color: ${Colors.gray};
+    @media screen and (max-width: 530px) {
+      display: none;
+    }
   }
   ul {
     display: flex;
+    @media screen and (max-width: 530px) {
+      display: none;
+    }
   }
   ul > li {
     display: flex;
@@ -68,6 +81,9 @@ const SSubMenu = styled.div`
     align-items: flex-start;
     font-size: 18px;
     margin-right: 45px;
+    @media screen and (max-width: 530px) {
+      display: none;
+    }
     p {
       margin-bottom: 25px;
       @media screen and (max-width: 890px) {
@@ -80,6 +96,9 @@ const SSubMenu = styled.div`
   }
   ul > li:last-child {
     margin-right: 0;
+  }
+  @media screen and (max-width: 530px) {
+    display: none;
   }
 `;
 

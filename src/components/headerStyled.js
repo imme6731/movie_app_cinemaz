@@ -9,6 +9,7 @@ export const SHeader = styled.header`
   align-items: center;
   position: relative;
   z-index: 900;
+  overflow-x: hidden;
 `;
 
 export const LeftWrap = styled.div`
@@ -26,6 +27,9 @@ export const Logo = styled.h3`
   @media screen and (max-width: 890px) {
     margin-right: 40px;
     font-size: 32px;
+  }
+  @media screen and (max-width: 530px) {
+    margin-right: 0;
   }
 `;
 
@@ -46,6 +50,9 @@ export const MenuWrap = styled.ul`
         display: none;
       }
       margin-right: 0;
+    }
+    @media screen and (max-width: 530px) {
+      display: none;
     }
   }
 `;

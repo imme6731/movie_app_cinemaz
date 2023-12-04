@@ -3,6 +3,7 @@ import { IMG_URL } from "../../../api";
 import { Colors } from "../../../style/GlobalStyled";
 import { Link } from "react-router-dom";
 import { PageTitle } from "../../../components/PageTitle";
+import { NoImg } from "../../../components/NoImg";
 
 const Contianer = styled.div`
   width: 100%;
@@ -93,7 +94,7 @@ export const Trending = ({ titleName, dataName }) => {
           dataName.map((res) => (
             <Con key={res.id}>
               <Link to={`/detail/${res.id}`}>
-                <Bg $bgUrl={res.poster_path} />
+                {res.poster_path ? <Bg $bgUrl={res.poster_path} /> : <NoImg />}
                 <MovieTitle>{res.title}</MovieTitle>
               </Link>
             </Con>

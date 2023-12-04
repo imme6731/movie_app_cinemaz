@@ -8,14 +8,17 @@ import { IMG_URL } from "../../../api";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Loading } from "../../../components/Loading";
+import { NoImgPoster } from "../components/NoImgPoster";
+import { NoImgBack } from "./NoImgBack";
 
 const Container = styled.section`
   width: 100%;
   position: relative;
+  overflow: hidden;
 `;
 const BlackBg = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 101%;
+  height: 101%;
   background: rgb(29, 29, 29);
   background: linear-gradient(
     0deg,
@@ -30,7 +33,7 @@ const BlackBg = styled.div`
   left: 0;
   backdrop-filter: blur(50px);
   @media screen and (max-width: 640px) {
-    display: none;
+    backdrop-filter: blur(0);
   }
 `;
 const Bg = styled.div`
@@ -44,6 +47,10 @@ const Bg = styled.div`
   left: 0px;
   opacity: 0.5;
   transform: scale(1.05);
+  @media screen and (max-width: 640px) {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 `;
 const InnerCon = styled.div`
   position: relative;
@@ -52,21 +59,23 @@ const InnerCon = styled.div`
   padding: ${PaddingValue.pcInnerWrap};
   @media screen and (max-width: 640px) {
     padding: 0 ${PaddingValue.pcInnerWrap};
-    padding-top: 200px;
+    padding-top: 220px;
+    top: -30px;
   }
 `;
 const TxtWrap = styled.div`
-  width: 40%;
+  width: 50%;
   word-break: keep-all;
-`;
-const MainTxt = styled.div`
   @media screen and (max-width: 640px) {
+    width: 80%;
   }
 `;
+const MainTxt = styled.div``;
 const Title = styled.h3`
   font-size: 64px;
   font-weight: 700;
   margin-bottom: 30px;
+  line-height: 1.2;
   @media screen and (max-width: 890px) {
     font-size: 48px;
   }
@@ -84,7 +93,10 @@ const BoxDesc = styled.ul`
     padding: 8px 10px;
     margin-right: 10px;
     font-size: 16px;
-    @media screen and (max-width: 640px) {
+  }
+  @media screen and (max-width: 640px) {
+    margin-bottom: 20px;
+    & li {
       font-size: 14px;
     }
   }
@@ -92,6 +104,9 @@ const BoxDesc = styled.ul`
 const BtnWrap = styled.ul`
   display: flex;
   margin-bottom: 40px;
+  @media screen and (max-width: 640px) {
+    margin-bottom: 0;
+  }
   & li {
     font-size: 40px;
     display: flex;
@@ -99,6 +114,9 @@ const BtnWrap = styled.ul`
     align-items: center;
     @media screen and (max-width: 890px) {
       font-size: 32px;
+    }
+    @media screen and (max-width: 640px) {
+      font-size: 24px;
     }
   }
   & li:first-child {
@@ -148,6 +166,14 @@ const Genre = styled.li`
     margin-right: 10px;
     display: block;
     margin-bottom: 0;
+  }
+  @media screen and (max-width: 800px) {
+    & ul {
+      flex-direction: column;
+    }
+    & ul > li {
+      margin-bottom: 10px;
+    }
   }
 `;
 const Nation = styled.li`
@@ -234,16 +260,21 @@ export const MainDetail = ({ val, year, nat1, nat2, act }) => {
         <Loading />
       ) : (
         <Container>
-          <Bg $Bg={val.backdrop_path}>
-            <BlackBg />
-          </Bg>
+          {val.backdrop_path ? (
+            <Bg $Bg={val.backdrop_path}>
+              <BlackBg />
+            </Bg>
+          ) : (
+            <NoImgBack />
+          )}
+
           <InnerCon>
             <TxtWrap>
               <MainTxt>
                 <Title>{val.title}</Title>
                 <BoxDesc>
                   {year && <li>{year}</li>}
-                  <li>{val.genres[0].name}</li>
+                  {val.genres[0].name && <li>{val.genres[0].name}</li>}
                   {val.runtime !== 0 && <li>{val.runtime}분</li>}
                 </BoxDesc>
                 <BtnWrap>
@@ -341,7 +372,11 @@ export const MainDetail = ({ val, year, nat1, nat2, act }) => {
                 )}
               </DescTxt>
             </TxtWrap>
-            <PosterImg $poster={val.poster_path}></PosterImg>
+            {val.poster_path ? (
+              <PosterImg $poster={val.poster_path} />
+            ) : (
+              <NoImgPoster />
+            )}
           </InnerCon>
         </Container>
       )}

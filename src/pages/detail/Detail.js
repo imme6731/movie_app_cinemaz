@@ -7,6 +7,7 @@ import { Loading } from "../../components/Loading";
 import { SectionBanner } from "../home/components/SectionBanner";
 import { PageTitle } from "../../components/PageTitle";
 import { useScrollTop } from "../../lib/useScrollTop";
+import { MobileDescTxt } from "./components/MobileDescTxt";
 
 export const Detail = () => {
   const { id } = useParams();
@@ -81,6 +82,13 @@ export const Detail = () => {
                 act={actor}
               />
               <Layout>
+                <MobileDescTxt
+                  val={value}
+                  year={date}
+                  nat1={conList}
+                  nat2={conList_2}
+                  act={actor}
+                />
                 {recomLength === 0 ? (
                   ""
                 ) : (

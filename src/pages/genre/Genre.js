@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { Loading } from "../../components/Loading";
 import { PageTitle } from "../../components/PageTitle";
 import { useScrollTop } from "../../lib/useScrollTop";
+import { NoImg } from "../../components/NoImg";
 
 const Title = styled.h3`
   font-size: 32px;
@@ -121,7 +122,11 @@ export const Genre = () => {
                   data.map((res) => (
                     <Con key={res.id}>
                       <Link to={`/detail/${res.id}`}>
-                        <Bg $bgUrl={res.poster_path} />
+                        {res.poster_path ? (
+                          <Bg $bgUrl={res.poster_path} />
+                        ) : (
+                          <NoImg />
+                        )}
                         <MovieTitle>{res.title}</MovieTitle>
                       </Link>
                     </Con>
