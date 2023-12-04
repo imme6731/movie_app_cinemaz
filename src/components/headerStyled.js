@@ -232,7 +232,8 @@ export const Wrap = styled.div`
   position: absolute;
   /* bottom: -135.5px;
   bottom: 100%; */
-  bottom: ${(props) => props.$bottom};
+  /*top:412px */
+  top: ${(props) => props.$top};
   opacity: ${(props) => props.$opacity};
   width: 85%;
   background-color: #1d1d1d;

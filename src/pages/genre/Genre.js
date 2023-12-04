@@ -105,7 +105,6 @@ export const Genre = () => {
   const [results, setResults] = useState("인기순");
 
   const handlerChange = (e) => {
-    console.log(e.target.value);
     setResults(e.target.value);
   };
 

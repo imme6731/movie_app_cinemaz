@@ -45,7 +45,7 @@ import { Loading } from "./Loading";
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [menuLeft, setMenuLeft] = useState("100%");
-  const [openGenre, setOpenGenre] = useState("-22%");
+  const [openGenre, setOpenGenre] = useState("360px");
   const [opPer, setOpPer] = useState(0);
   const [list, setList] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -73,21 +73,21 @@ export const Header = () => {
   const closeMenu = () => {
     if (menuLeft === 0) {
       setMenuLeft("100%");
-      setOpenGenre("-22%");
+      setOpenGenre("360px");
       setOpPer(0);
     } else {
       setMenuLeft(0);
-      setOpenGenre("-27%");
+      setOpenGenre("412px");
       setOpPer("100%");
     }
   };
 
   const onClickMovie = () => {
-    if (openGenre === "-22%") {
-      setOpenGenre("-27%");
+    if (openGenre === "360px") {
+      setOpenGenre("412px");
       setOpPer("100%");
     } else {
-      setOpenGenre("-22%");
+      setOpenGenre("360px");
       setOpPer(0);
     }
   };
@@ -212,7 +212,7 @@ export const Header = () => {
               </MovieTap>
 
               {genresList && (
-                <Wrap $bottom={openGenre} $opacity={opPer}>
+                <Wrap $top={openGenre} $opacity={opPer}>
                   <GenreList>
                     <li>
                       <Link to={`/genre/${list[0].id}`} onClick={closeMenu}>
