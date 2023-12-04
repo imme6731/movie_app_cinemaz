@@ -9,7 +9,9 @@ export const SHeader = styled.header`
   align-items: center;
   position: relative;
   z-index: 900;
-  overflow-x: hidden;
+  @media screen and (max-width: 530px) {
+    overflow: hidden;
+  }
 `;
 
 export const LeftWrap = styled.div`

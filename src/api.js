@@ -64,10 +64,18 @@ export const recommend = (id) =>
     (res) => res.json()
   );
 
-export const discover = (id) =>
+export const discoverPop = (id) =>
   fetch(
     url(
       `discover/movie?include_adult=false&include_video=false&language=ko-KR&page=1&sort_by=popularity.desc&with_genres=${id}`
+    ),
+    options
+  ).then((res) => res.json());
+
+export const discoverVote = (id) =>
+  fetch(
+    url(
+      `discover/movie?include_adult=false&include_video=false&language=ko-KR&page=1&sort_by=vote_count.desc&with_genres=${id}`
     ),
     options
   ).then((res) => res.json());

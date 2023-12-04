@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { Layout } from "../../components/Layout";
-import { IMG_URL, discover, genresList } from "../../api";
+import { IMG_URL, discoverPop, discoverVote, genresList } from "../../api";
 import { Colors } from "../../style/GlobalStyled";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -9,6 +9,11 @@ import { PageTitle } from "../../components/PageTitle";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { NoImg } from "../../components/NoImg";
 
+const Top = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+`;
 const Title = styled.h3`
   font-size: 32px;
   font-weight: 700;
@@ -17,7 +22,18 @@ const Title = styled.h3`
     font-size: 24px;
   }
 `;
-
+const Select = styled.select`
+  width: 130px;
+  height: 30px;
+  background-color: #1d1d1d;
+  border: 1px solid white;
+  color: white;
+  font-size: 16px;
+  padding-left: 5px;
+  @media screen and (max-width: 390px) {
+    width: 115px;
+  }
+`;
 const ConWrap = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -82,17 +98,27 @@ const MovieTitle = styled.p`
 export const Genre = () => {
   const { id } = useParams();
 
-  const [data, setData] = useState();
+  const [popular, setPopular] = useState();
+  const [vote, setVote] = useState();
   const [title, setTitle] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [results, setResults] = useState("인기순");
+
+  const handlerChange = (e) => {
+    console.log(e.target.value);
+    setResults(e.target.value);
+  };
 
   useEffect(() => {
     (async () => {
       try {
-        const { results } = await discover(id);
+        const { results: popdesc } = await discoverPop(id);
 
-        setData(results);
+        setPopular(popdesc);
         setIsLoading(false);
+
+        const { results: votedesc } = await discoverVote(id);
+        setVote(votedesc);
 
         const { genres } = await genresList();
 
@@ -113,25 +139,57 @@ export const Genre = () => {
         <Loading />
       ) : (
         <>
-          {data && (
+          {popular && (
             <Layout>
-              <Title>{title} 영화</Title>
+              <Top>
+                <Title>{title} 영화</Title>
+                <Select onChange={handlerChange}>
+                  <option
+                    key={"인기순"}
+                    value={"인기순"}
+                    defaultValue={"인기순"}
+                  >
+                    인기순
+                  </option>
+                  <option key={"리뷰 많은 순"} value={"리뷰 많은 순"}>
+                    리뷰 많은 순
+                  </option>
+                </Select>
+              </Top>
 
-              <ConWrap>
-                {data &&
-                  data.map((res) => (
-                    <Con key={res.id}>
-                      <Link to={`/detail/${res.id}`}>
-                        {res.poster_path ? (
-                          <Bg $bgUrl={res.poster_path} />
-                        ) : (
-                          <NoImg />
-                        )}
-                        <MovieTitle>{res.title}</MovieTitle>
-                      </Link>
-                    </Con>
-                  ))}
-              </ConWrap>
+              {results === "인기순" ? (
+                <ConWrap>
+                  {popular &&
+                    popular.map((res) => (
+                      <Con key={res.id}>
+                        <Link to={`/detail/${res.id}`}>
+                          {res.poster_path ? (
+                            <Bg $bgUrl={res.poster_path} />
+                          ) : (
+                            <NoImg />
+                          )}
+                          <MovieTitle>{res.title}</MovieTitle>
+                        </Link>
+                      </Con>
+                    ))}
+                </ConWrap>
+              ) : (
+                <ConWrap>
+                  {vote &&
+                    vote.map((res) => (
+                      <Con key={res.id}>
+                        <Link to={`/detail/${res.id}`}>
+                          {res.poster_path ? (
+                            <Bg $bgUrl={res.poster_path} />
+                          ) : (
+                            <NoImg />
+                          )}
+                          <MovieTitle>{res.title}</MovieTitle>
+                        </Link>
+                      </Con>
+                    ))}
+                </ConWrap>
+              )}
             </Layout>
           )}
         </>
