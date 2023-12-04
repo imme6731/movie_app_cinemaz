@@ -5,6 +5,7 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { Colors } from "../../../style/GlobalStyled";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
+import "../style/mainbanner.css";
 
 const ConWrap = styled.section`
   margin-bottom: 120px;
@@ -27,7 +28,7 @@ const TitleWrap = styled.div`
   align-items: end;
   margin-bottom: 40px;
   @media screen and (max-width: 640px) {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
   }
 `;
 const Title = styled.h3`
@@ -132,7 +133,7 @@ export const SectionBanner = ({ titleName, dataName, page }) => {
           <Swiper {...params}>
             {dataName &&
               dataName.map((data) => (
-                <SwiperSlide key={data.id}>
+                <SwiperSlide key={data.id} className="hover">
                   <Link to={`/detail/${data.id}`}>
                     <ConBg $posterBg={data.poster_path} />
                     <MovieTitle>{data.title}</MovieTitle>

@@ -1,12 +1,16 @@
 import { styled } from "styled-components";
-import { Layout } from "../../components/Layout";
-import { IMG_URL } from "../../api";
-import { Colors } from "../../style/GlobalStyled";
-import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import { PageTitle } from "../../components/PageTitle";
-import { useScrollTop } from "../../lib/useScrollTop";
+import { IMG_URL } from "../../../api";
+import { Colors } from "../../../style/GlobalStyled";
+import { Link } from "react-router-dom";
+import { PageTitle } from "../../../components/PageTitle";
 
+const Contianer = styled.div`
+  width: 100%;
+  padding: 80px 0;
+  @media screen and (max-width: 530px) {
+    padding: 60px 0;
+  }
+`;
 const Title = styled.h3`
   font-size: 32px;
   font-weight: 700;
@@ -33,11 +37,7 @@ const ConWrap = styled.div`
     grid-template-columns: repeat(3, 1fr);
   }
 `;
-const Con = styled.div`
-  &:hover {
-    transform: translateY(-10px);
-  }
-`;
+const Con = styled.div``;
 const Bg = styled.div`
   height: 434px;
   background: url(${IMG_URL}/w500/${(props) => props.$bgUrl}) no-repeat
@@ -82,30 +82,23 @@ const MovieTitle = styled.p`
   }
 `;
 
-export const ViewMore = () => {
-  useScrollTop();
-  const location = useLocation();
-  // console.log(location);
-  const dataName = location.state.data.dataName;
-  const titleName = location.state.title.titleName;
-
-  useEffect(() => {}, [location]);
-
+export const Trending = ({ titleName, dataName }) => {
   return (
-    <Layout>
+    <Contianer>
       <PageTitle titlename={` | ${titleName}`} />
       <Title>{titleName}</Title>
 
       <ConWrap>
-        {dataName.map((res) => (
-          <Con key={res.id}>
-            <Link to={`/detail/${res.id}`}>
-              <Bg $bgUrl={res.poster_path} />
-              <MovieTitle>{res.title}</MovieTitle>
-            </Link>
-          </Con>
-        ))}
+        {dataName &&
+          dataName.map((res) => (
+            <Con key={res.id}>
+              <Link to={`/detail/${res.id}`}>
+                <Bg $bgUrl={res.poster_path} />
+                <MovieTitle>{res.title}</MovieTitle>
+              </Link>
+            </Con>
+          ))}
       </ConWrap>
-    </Layout>
+    </Contianer>
   );
 };

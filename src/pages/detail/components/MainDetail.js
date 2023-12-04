@@ -29,6 +29,9 @@ const BlackBg = styled.div`
   top: 0;
   left: 0;
   backdrop-filter: blur(50px);
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
 `;
 const Bg = styled.div`
   width: 100%;
@@ -47,16 +50,30 @@ const InnerCon = styled.div`
   display: flex;
   justify-content: space-between;
   padding: ${PaddingValue.pcInnerWrap};
+  @media screen and (max-width: 640px) {
+    padding: 0 ${PaddingValue.pcInnerWrap};
+    padding-top: 200px;
+  }
 `;
 const TxtWrap = styled.div`
   width: 40%;
   word-break: keep-all;
 `;
-const MainTxt = styled.div``;
+const MainTxt = styled.div`
+  @media screen and (max-width: 640px) {
+  }
+`;
 const Title = styled.h3`
   font-size: 64px;
   font-weight: 700;
   margin-bottom: 30px;
+  @media screen and (max-width: 890px) {
+    font-size: 48px;
+  }
+  @media screen and (max-width: 640px) {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
 `;
 const BoxDesc = styled.ul`
   display: flex;
@@ -67,6 +84,9 @@ const BoxDesc = styled.ul`
     padding: 8px 10px;
     margin-right: 10px;
     font-size: 16px;
+    @media screen and (max-width: 640px) {
+      font-size: 14px;
+    }
   }
 `;
 const BtnWrap = styled.ul`
@@ -77,16 +97,26 @@ const BtnWrap = styled.ul`
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media screen and (max-width: 890px) {
+      font-size: 32px;
+    }
   }
   & li:first-child {
     margin-right: 30px;
+    @media screen and (max-width: 890px) {
+      margin-right: 20px;
+    }
   }
   & li > p {
     font-size: 16px;
     margin-top: 10px;
   }
 `;
-const DescTxt = styled.div``;
+const DescTxt = styled.div`
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
+`;
 const Basic = styled.ul`
   margin-bottom: 40px;
   & h3 {
@@ -160,6 +190,17 @@ const PosterImg = styled.div`
   height: 750px;
   background: url(${IMG_URL}/w500/${(props) => props.$poster}) no-repeat center /
     cover;
+  @media screen and (max-width: 1240px) {
+    width: 400px;
+    height: 600px;
+  }
+  @media screen and (max-width: 890px) {
+    width: 320px;
+    height: 480px;
+  }
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
 `;
 
 export const MainDetail = ({ val, year, nat1, nat2, act }) => {

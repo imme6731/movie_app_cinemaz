@@ -30,3 +30,7 @@
 .swiper-pagination-bullet-active {
   background-color: #ff5c00 !important;
 }
+
+.hover:hover {
+  transform: translateY(-15px);
+}

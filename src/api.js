@@ -76,3 +76,8 @@ export const movieSearch = (input) =>
   fetch(url(`search/movie?query=${input}&language=ko-KR`), options).then(
     (res) => res.json()
   );
+
+export const trending = () =>
+  fetch(url(`trending/movie/week?language=ko-KR`), options).then((res) =>
+    res.json()
+  );

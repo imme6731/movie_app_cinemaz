@@ -6,15 +6,19 @@ import {
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
-import { IMG_URL, movieSearch } from "../../api";
-import { useState } from "react";
+import { IMG_URL, movieSearch, trending } from "../../api";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PageTitle } from "../../components/PageTitle";
 import { useScrollTop } from "../../lib/useScrollTop";
+import { Trending } from "./components/Trending";
 
 const Container = styled.div`
   width: 100%;
   padding: 100px ${PaddingValue.pcInnerWrap};
+  @media screen and (max-width: 530px) {
+    padding: 60px ${PaddingValue.pcInnerWrap};
+  }
 `;
 const Form = styled.form`
   width: 100%;
@@ -24,6 +28,12 @@ const Form = styled.form`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid white;
+  @media screen and (max-width: 530px) {
+    height: 40px;
+  }
+  @media screen and (max-width: 390px) {
+    padding: 0;
+  }
 `;
 const Input = styled.input`
   width: 90%;
@@ -33,10 +43,16 @@ const Input = styled.input`
   font-size: 30px;
   font-weight: 500;
   color: white;
+  @media screen and (max-width: 530px) {
+    font-size: 18px;
+  }
 `;
 const Btn = styled.div`
   font-size: 30px;
   opacity: ${(props) => (props.$isValid ? 1 : 0.5)};
+  @media screen and (max-width: 530px) {
+    font-size: 24px;
+  }
 `;
 
 const Title = styled.h3`
@@ -135,6 +151,7 @@ export const Search = () => {
 
   const [term, setTerm] = useState();
   const [inputVal, setInputVal] = useState();
+  const [trendVal, setTrendVal] = useState();
 
   const searchHandler = async (data) => {
     const { search: keyword } = data;
@@ -143,12 +160,24 @@ export const Search = () => {
 
     try {
       const { results } = await movieSearch(keyword);
-      console.log(results);
+      // console.log(results);
       setTerm(results);
     } catch (error) {
       console.log("에러:" + error);
     }
   };
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { results: trendResults } = await trending();
+        // console.log(trendResults);
+        setTrendVal(trendResults);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
 
   return (
     <Container>
@@ -193,7 +222,11 @@ export const Search = () => {
           )}
         </>
       ) : (
-        <>{term?.length !== 0 && "트렌딩"}</>
+        <>
+          {term?.length !== 0 && (
+            <Trending titleName={"이번 주 트렌딩"} dataName={trendVal} />
+          )}
+        </>
       )}
     </Container>
   );
