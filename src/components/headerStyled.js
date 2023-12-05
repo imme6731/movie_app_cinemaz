@@ -9,9 +9,9 @@ export const SHeader = styled.header`
   align-items: center;
   position: relative;
   z-index: 900;
-  @media screen and (max-width: 530px) {
+  /* @media screen and (max-width: 530px) {
     overflow: hidden;
-  }
+  } */
 `;
 
 export const LeftWrap = styled.div`
@@ -100,7 +100,7 @@ export const MobileMenu = styled.div`
 
 export const MovileSlideMenu = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: #313131;
   padding: 20px 8%;
   position: fixed;
@@ -108,6 +108,8 @@ export const MovileSlideMenu = styled.div`
   top: 0;
   transition: 0.3s;
   overflow: scroll;
+  z-index: 10;
+  display: ${(props) => props.$display};
 `;
 export const Container = styled.div`
   width: 100%;
@@ -230,9 +232,6 @@ export const Right = styled.div`
 
 export const Wrap = styled.div`
   position: absolute;
-  /* bottom: -135.5px;
-  bottom: 100%; */
-  /*top:412px */
   top: ${(props) => props.$top};
   opacity: ${(props) => props.$opacity};
   width: 85%;

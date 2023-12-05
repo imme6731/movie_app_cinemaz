@@ -40,12 +40,12 @@ import {
   Wrap,
   GenreList,
 } from "./headerStyled";
-import { Loading } from "./Loading";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [menuLeft, setMenuLeft] = useState("100%");
   const [openGenre, setOpenGenre] = useState("360px");
+  const [display, setDisplay] = useState("none");
   const [opPer, setOpPer] = useState(0);
   const [list, setList] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -67,7 +67,17 @@ export const Header = () => {
   };
 
   const onClickMenu = () => {
-    menuLeft === "100%" ? setMenuLeft(0) : setMenuLeft("100%");
+    if (menuLeft === "100%") {
+      setMenuLeft(0);
+      setOpenGenre("360px");
+      setOpPer(0);
+      setDisplay("block");
+    } else if (menuLeft === "0") {
+      setMenuLeft("100%");
+      setOpenGenre("412px");
+      setOpPer("100%");
+      setDisplay("none");
+    }
   };
 
   const closeMenu = () => {
@@ -75,10 +85,12 @@ export const Header = () => {
       setMenuLeft("100%");
       setOpenGenre("360px");
       setOpPer(0);
+      setDisplay("none");
     } else {
       setMenuLeft(0);
       setOpenGenre("412px");
       setOpPer("100%");
+      setDisplay("block");
     }
   };
 
@@ -90,6 +102,14 @@ export const Header = () => {
       setOpenGenre("360px");
       setOpPer(0);
     }
+  };
+
+  const showModal = (e) => {
+    document.body.style.overflow = "hidden";
+  };
+
+  const hideModal = (e) => {
+    document.body.style.overflow = "unset";
   };
 
   useEffect(() => {
@@ -155,117 +175,195 @@ export const Header = () => {
         <Link to={routes.signUp}>
           <li>회원가입</li>
         </Link>
-        <MobileMenu onClick={onClickMenu}>
+        <MobileMenu
+          onClick={() => {
+            onClickMenu();
+            showModal();
+          }}
+        >
           <FontAwesomeIcon icon={faBars} />
         </MobileMenu>
       </RightWrap>
 
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <MovileSlideMenu $left={menuLeft}>
-          <Container>
-            <MHeader>
-              <MLogo>CINEMAZ</MLogo>
-              <Out onClick={closeMenu}>
-                <FontAwesomeIcon icon={faXmark} />
-              </Out>
-            </MHeader>
-            <Section1>
-              <h3>
-                즐거운 문화 생활!
-                <br />
-                <b>CINEMAZ</b>와 함께 하세요.
-              </h3>
+      <MovileSlideMenu $left={menuLeft} $display={display}>
+        <Container>
+          <MHeader>
+            <MLogo>CINEMAZ</MLogo>
+            <Out
+              onClick={() => {
+                closeMenu();
+                hideModal();
+              }}
+            >
+              <FontAwesomeIcon icon={faXmark} />
+            </Out>
+          </MHeader>
+          <Section1>
+            <h3>
+              즐거운 문화 생활!
+              <br />
+              <b>CINEMAZ</b>와 함께 하세요.
+            </h3>
 
-              <Btn>
-                <Link to={routes.login} onClick={closeMenu}>
-                  <Login>로그인</Login>
-                </Link>
-                <Link to={routes.signUp} onClick={closeMenu}>
-                  <SignUp>회원가입</SignUp>
-                </Link>
-              </Btn>
-            </Section1>
-
-            <Section2>
-              <Link to={routes.home} onClick={closeMenu}>
-                <HomeTap>
-                  <FontAwesomeIcon icon={faHome} />
-                  <p>홈</p>
-                </HomeTap>
+            <Btn onClick={hideModal}>
+              <Link to={routes.login} onClick={closeMenu}>
+                <Login>로그인</Login>
               </Link>
-              <Link to={routes.search} onClick={closeMenu}>
-                <SearchTap>
-                  <FontAwesomeIcon icon={faSearch} onClick={closeMenu} />
-                  <p>검색</p>
-                </SearchTap>
+              <Link to={routes.signUp} onClick={closeMenu}>
+                <SignUp>회원가입</SignUp>
               </Link>
-              <MovieTap onClick={onClickMovie}>
-                <Left>
-                  <FontAwesomeIcon icon={faFilm} />
-                  <p>영화</p>
-                </Left>
-                <Right>
-                  <FontAwesomeIcon icon={faChevronDown} />
-                </Right>
-              </MovieTap>
+            </Btn>
+          </Section1>
 
-              {genresList && (
-                <Wrap $top={openGenre} $opacity={opPer}>
-                  <GenreList>
-                    <li>
-                      <Link to={`/genre/${list[0].id}`} onClick={closeMenu}>
-                        • {list[0].name}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={`/genre/${list[2].id}`} onClick={closeMenu}>
-                        • {list[2].name}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={`/genre/${list[3].id}`} onClick={closeMenu}>
-                        • {list[3].name}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={`/genre/${list[5].id}`} onClick={closeMenu}>
-                        • {list[5].name}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={`/genre/${list[7].id}`} onClick={closeMenu}>
-                        • {list[7].name}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={`/genre/${list[8].id}`} onClick={closeMenu}>
-                        • {list[8].name}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={`/genre/${list[10].id}`} onClick={closeMenu}>
-                        • {list[10].name}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={`/genre/${list[11].id}`} onClick={closeMenu}>
-                        • {list[11].name}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={`/genre/${list[13].id}`} onClick={closeMenu}>
-                        • {list[13].name}
-                      </Link>
-                    </li>
-                  </GenreList>
-                </Wrap>
-              )}
-            </Section2>
-          </Container>
-        </MovileSlideMenu>
-      )}
+          <Section2>
+            <Link
+              to={routes.home}
+              onClick={() => {
+                closeMenu();
+                hideModal();
+              }}
+            >
+              <HomeTap>
+                <FontAwesomeIcon icon={faHome} />
+                <p>홈</p>
+              </HomeTap>
+            </Link>
+            <Link
+              to={routes.search}
+              onClick={() => {
+                closeMenu();
+                hideModal();
+              }}
+            >
+              <SearchTap>
+                <FontAwesomeIcon icon={faSearch} />
+                <p>검색</p>
+              </SearchTap>
+            </Link>
+            <MovieTap onClick={onClickMovie}>
+              <Left>
+                <FontAwesomeIcon icon={faFilm} />
+                <p>영화</p>
+              </Left>
+              <Right>
+                <FontAwesomeIcon icon={faChevronDown} />
+              </Right>
+            </MovieTap>
+
+            {isLoading ? (
+              ""
+            ) : (
+              <>
+                {genresList && (
+                  <Wrap $top={openGenre} $opacity={opPer}>
+                    <GenreList>
+                      <li>
+                        <Link
+                          to={`/genre/${list[0].id}`}
+                          onClick={() => {
+                            closeMenu();
+                            hideModal();
+                          }}
+                        >
+                          • {list[0].name}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to={`/genre/${list[2].id}`}
+                          onClick={() => {
+                            closeMenu();
+                            hideModal();
+                          }}
+                        >
+                          • {list[2].name}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to={`/genre/${list[3].id}`}
+                          onClick={() => {
+                            closeMenu();
+                            hideModal();
+                          }}
+                        >
+                          • {list[3].name}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to={`/genre/${list[5].id}`}
+                          onClick={() => {
+                            closeMenu();
+                            hideModal();
+                          }}
+                        >
+                          • {list[5].name}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to={`/genre/${list[7].id}`}
+                          onClick={() => {
+                            closeMenu();
+                            hideModal();
+                          }}
+                        >
+                          • {list[7].name}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to={`/genre/${list[8].id}`}
+                          onClick={() => {
+                            closeMenu();
+                            hideModal();
+                          }}
+                        >
+                          • {list[8].name}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to={`/genre/${list[10].id}`}
+                          onClick={() => {
+                            closeMenu();
+                            hideModal();
+                          }}
+                        >
+                          • {list[10].name}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to={`/genre/${list[11].id}`}
+                          onClick={() => {
+                            closeMenu();
+                            hideModal();
+                          }}
+                        >
+                          • {list[11].name}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to={`/genre/${list[13].id}`}
+                          onClick={() => {
+                            closeMenu();
+                            hideModal();
+                          }}
+                        >
+                          • {list[13].name}
+                        </Link>
+                      </li>
+                    </GenreList>
+                  </Wrap>
+                )}
+              </>
+            )}
+          </Section2>
+        </Container>
+      </MovileSlideMenu>
     </SHeader>
   );
 };
