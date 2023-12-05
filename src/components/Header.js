@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faChevronDown,
+  faChevronUp,
   faFilm,
   faHome,
   faHouse,
@@ -45,6 +46,7 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [menuLeft, setMenuLeft] = useState("100%");
   const [openGenre, setOpenGenre] = useState("360px");
+  const [iconChange, setIconChange] = useState(false);
   const [display, setDisplay] = useState("none");
   const [opPer, setOpPer] = useState(0);
   const [list, setList] = useState();
@@ -98,9 +100,11 @@ export const Header = () => {
     if (openGenre === "360px") {
       setOpenGenre("412px");
       setOpPer("100%");
+      setIconChange(true);
     } else {
       setOpenGenre("360px");
       setOpPer(0);
+      setIconChange(false);
     }
   };
 
@@ -246,7 +250,11 @@ export const Header = () => {
                 <p>영화</p>
               </Left>
               <Right>
-                <FontAwesomeIcon icon={faChevronDown} />
+                {iconChange ? (
+                  <FontAwesomeIcon icon={faChevronUp} />
+                ) : (
+                  <FontAwesomeIcon icon={faChevronDown} />
+                )}
               </Right>
             </MovieTap>
 
@@ -265,7 +273,7 @@ export const Header = () => {
                             hideModal();
                           }}
                         >
-                          • {list[0].name}
+                          {list[0].name}
                         </Link>
                       </li>
                       <li>
@@ -276,7 +284,7 @@ export const Header = () => {
                             hideModal();
                           }}
                         >
-                          • {list[2].name}
+                          {list[2].name}
                         </Link>
                       </li>
                       <li>
@@ -287,7 +295,7 @@ export const Header = () => {
                             hideModal();
                           }}
                         >
-                          • {list[3].name}
+                          {list[3].name}
                         </Link>
                       </li>
                       <li>
@@ -298,7 +306,7 @@ export const Header = () => {
                             hideModal();
                           }}
                         >
-                          • {list[5].name}
+                          {list[5].name}
                         </Link>
                       </li>
                       <li>
@@ -309,7 +317,7 @@ export const Header = () => {
                             hideModal();
                           }}
                         >
-                          • {list[7].name}
+                          {list[7].name}
                         </Link>
                       </li>
                       <li>
@@ -320,7 +328,7 @@ export const Header = () => {
                             hideModal();
                           }}
                         >
-                          • {list[8].name}
+                          {list[8].name}
                         </Link>
                       </li>
                       <li>
@@ -331,7 +339,7 @@ export const Header = () => {
                             hideModal();
                           }}
                         >
-                          • {list[10].name}
+                          {list[10].name}
                         </Link>
                       </li>
                       <li>
@@ -342,7 +350,7 @@ export const Header = () => {
                             hideModal();
                           }}
                         >
-                          • {list[11].name}
+                          {list[11].name}
                         </Link>
                       </li>
                       <li>
@@ -353,7 +361,7 @@ export const Header = () => {
                             hideModal();
                           }}
                         >
-                          • {list[13].name}
+                          {list[13].name}
                         </Link>
                       </li>
                     </GenreList>

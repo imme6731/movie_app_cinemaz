@@ -34,6 +34,15 @@ const BlackBg = styled.div`
   backdrop-filter: blur(50px);
   @media screen and (max-width: 640px) {
     backdrop-filter: blur(0);
+    background: rgb(29, 29, 29);
+    background: linear-gradient(
+      0deg,
+      rgba(29, 29, 29, 1) 12%,
+      rgba(29, 29, 29, 0.8) 23%,
+      rgba(29, 29, 29, 0.6) 35%,
+      rgba(29, 29, 29, 0.2) 60%,
+      rgba(29, 29, 29, 0) 89%
+    );
   }
 `;
 const Bg = styled.div`

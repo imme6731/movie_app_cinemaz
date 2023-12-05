@@ -173,7 +173,6 @@ export const HomeTap = styled.div`
   position: relative;
   align-items: center;
   font-size: 20px;
-
   display: flex;
   margin-left: 0;
   padding: 15px 0;
@@ -207,12 +206,13 @@ export const MovieTap = styled.div`
   position: relative;
   align-items: center;
   font-size: 20px;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   margin-left: 0;
   padding: 15px 0;
   border-bottom: 0.5px solid #bcbcbc;
   color: ${Colors.pointColor};
+  cursor: pointer;
   p {
     font-size: 16px;
     color: white;
@@ -234,23 +234,27 @@ export const Wrap = styled.div`
   position: absolute;
   top: ${(props) => props.$top};
   opacity: ${(props) => props.$opacity};
-  width: 85%;
-  background-color: #1d1d1d;
-  padding: 30px 40px;
+  width: 83%;
+  background-color: #313131;
+  /* padding: 30px 40px; */
   transition: 0.5s;
   z-index: 0;
 `;
 
 export const GenreList = styled.ul`
   li {
-    margin-bottom: 20px;
+    padding: 15px 12%;
     display: block !important;
     font-size: 16px !important;
+    cursor: pointer;
     &:last-child {
       margin-bottom: 0;
     }
     & a {
       color: ${Colors.gray};
     }
+  }
+  li:hover {
+    background-color: #3c3c3c;
   }
 `;
