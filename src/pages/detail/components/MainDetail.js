@@ -112,6 +112,7 @@ const BtnWrap = styled.ul`
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
     @media screen and (max-width: 890px) {
       font-size: 32px;
     }
