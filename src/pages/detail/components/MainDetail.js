@@ -246,11 +246,9 @@ export const MainDetail = ({ val, year, nat1, nat2, act }) => {
   const [actLen, setActLen] = useState();
   const [genreLen, setGenreLen] = useState();
 
-  const hadnleCopyClipBoard = async (val) => {
+  const hadnleCopyClipBoard = async (text) => {
     try {
-      await navigator.clipboard.writeText(
-        `https://imme6731.github.io/movie_app_cinemaz/#/detail/${val.id}`
-      );
+      await navigator.clipboard.writeText(text);
       alert("클립보드에 링크가 복사되었습니다.");
     } catch (error) {
       console.log("에러:" + error);
@@ -308,7 +306,7 @@ export const MainDetail = ({ val, year, nat1, nat2, act }) => {
                   <li
                     onClick={() =>
                       hadnleCopyClipBoard(
-                        `http://localhost:3000/${location.pathname}`
+                        `https://imme6731.github.io/movie_app_cinemaz/${location.pathname}`
                       )
                     }
                   >
