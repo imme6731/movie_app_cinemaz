@@ -306,7 +306,7 @@ export const MainDetail = ({ val, year, nat1, nat2, act }) => {
                   <li
                     onClick={() =>
                       hadnleCopyClipBoard(
-                        `https://imme6731.github.io/movie_app_cinemaz/${location.pathname}`
+                        `https://imme6731.github.io/movie_app_cinemaz${location.pathname}`
                       )
                     }
                   >
