@@ -6,7 +6,6 @@ import { styled } from "styled-components";
 import { Colors, PaddingValue } from "../../../style/GlobalStyled";
 import { IMG_URL } from "../../../api";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { Loading } from "../../../components/Loading";
 import { NoImgPoster } from "../components/NoImgPoster";
 import { NoImgBack } from "./NoImgBack";
@@ -254,8 +253,6 @@ export const MainDetail = ({ val, year, nat1, nat2, act }) => {
       console.log("에러:" + error);
     }
   };
-
-  const location = useLocation();
 
   useEffect(() => {
     setIsLoading(false);
