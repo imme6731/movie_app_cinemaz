@@ -25,18 +25,14 @@ export const Form = styled.form`
   }
 `;
 export const Input = styled.input`
-  width: 50%;
+  width: 100%;
   height: 100%;
   background-color: #1d1d1d;
   border: none;
   font-size: 24px;
   font-weight: 500;
   color: white;
-  @media screen and (max-width: 960px) {
-    width: 70%;
-  }
   @media screen and (max-width: 690px) {
-    width: 90%;
     font-size: 18px;
   }
   @media screen and (max-width: 530px) {
@@ -44,6 +40,7 @@ export const Input = styled.input`
   }
 `;
 export const Btn = styled.div`
+  margin-left: 5px;
   font-size: 30px;
   opacity: ${(props) => (props.$isValid ? 1 : 0.5)};
   @media screen and (max-width: 530px) {

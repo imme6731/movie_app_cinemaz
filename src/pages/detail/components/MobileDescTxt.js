@@ -13,7 +13,7 @@ const DescTxt = styled.div`
   margin-bottom: 60px;
 `;
 const Basic = styled.ul`
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   & h3 {
     font-size: 24px;
     font-weight: 500;
@@ -69,7 +69,7 @@ const RunTime = styled.li``;
 const VoteAvg = styled.li``;
 
 const Overview = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   & h3 {
     font-size: 24px;
     font-weight: 500;
@@ -104,6 +104,8 @@ const Credits = styled.div`
     & ul {
       font-size: 16px;
     }
+    padding-bottom: 60px;
+    border-bottom: 0.5px solid #525252;
   }
 `;
 

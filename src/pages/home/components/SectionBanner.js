@@ -73,6 +73,9 @@ const ConBg = styled.div`
   @media screen and (max-width: 860px) {
     height: 250px;
   }
+  @media screen and (max-width: 530px) {
+    height: 200px;
+  }
   @media screen and (max-width: 390px) {
     height: 165px;
   }

@@ -94,7 +94,7 @@ const Title = styled.h3`
 `;
 const BoxDesc = styled.ul`
   display: flex;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   & li {
     border: 1px solid white;
     border-radius: 10px;
@@ -111,7 +111,7 @@ const BoxDesc = styled.ul`
 `;
 const BtnWrap = styled.ul`
   display: flex;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   @media screen and (max-width: 640px) {
     margin-bottom: 0;
   }
@@ -145,7 +145,7 @@ const DescTxt = styled.div`
   }
 `;
 const Basic = styled.ul`
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   & h3 {
     font-size: 24px;
     font-weight: 500;
@@ -194,7 +194,7 @@ const RunTime = styled.li``;
 const VoteAvg = styled.li``;
 
 const Overview = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   & h3 {
     font-size: 24px;
     font-weight: 500;

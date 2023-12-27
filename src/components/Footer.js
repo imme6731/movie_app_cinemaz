@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Colors, PaddingValue } from "../style/GlobalStyled";
+import { Link } from "react-router-dom";
 
 const SFooter = styled.div`
   width: 100%;
@@ -37,7 +38,9 @@ export const Footer = () => {
   return (
     <SFooter>
       <InnerWrap>
-        <Logo>CINEMAZ</Logo>
+        <Link to={"/"}>
+          <Logo>CINEMAZ</Logo>
+        </Link>
         <CopyRight>&copy; 2023 CINEMAZ</CopyRight>
       </InnerWrap>
     </SFooter>
