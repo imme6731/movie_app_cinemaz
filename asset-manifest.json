@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/movie_app_cinemaz/static/css/main.0f8b0c24.css",
-    "main.js": "/movie_app_cinemaz/static/js/main.297e7f90.js",
+    "main.css": "/movie_app_cinemaz/static/css/main.3a617b8e.css",
+    "main.js": "/movie_app_cinemaz/static/js/main.3be32519.js",
     "static/media/404 Logo.png": "/movie_app_cinemaz/static/media/404 Logo.7b10e5bd2ee7b6586b1e.png",
     "index.html": "/movie_app_cinemaz/index.html",
-    "main.0f8b0c24.css.map": "/movie_app_cinemaz/static/css/main.0f8b0c24.css.map",
-    "main.297e7f90.js.map": "/movie_app_cinemaz/static/js/main.297e7f90.js.map"
+    "main.3a617b8e.css.map": "/movie_app_cinemaz/static/css/main.3a617b8e.css.map",
+    "main.3be32519.js.map": "/movie_app_cinemaz/static/js/main.3be32519.js.map"
   },
   "entrypoints": [
-    "static/css/main.0f8b0c24.css",
-    "static/js/main.297e7f90.js"
+    "static/css/main.3a617b8e.css",
+    "static/js/main.3be32519.js"
   ]
 }
