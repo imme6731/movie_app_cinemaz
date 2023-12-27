@@ -27,13 +27,22 @@ export const Form = styled.form`
 export const Title = styled.h3`
   font-size: 40px;
   font-weight: 700;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   @media screen and (max-width: 640px) {
     font-size: 32px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
   @media screen and (max-width: 390px) {
     font-size: 28px;
+  }
+`;
+export const SubTitle = styled.h4`
+  font-size: 16px;
+  margin-bottom: 40px;
+  color: #e1e1e1;
+  @media screen and (max-width: 640px) {
+    font-size: 14px;
+    margin-bottom: 30px;
   }
 `;
 export const Input = styled.input`
@@ -43,6 +52,8 @@ export const Input = styled.input`
   border-radius: 5px;
   padding-left: 20px;
   font-size: 16px;
+  margin-bottom: 12px;
+
   @media screen and (max-width: 640px) {
     height: 40px;
     font-size: 14px;
@@ -53,7 +64,7 @@ export const AutoLogin = styled.label`
   width: 100%;
   display: flex;
   align-items: center;
-
+  margin-top: 10px;
   & p {
     font-size: 16px;
   }
@@ -108,6 +119,7 @@ export const SignUpGo = styled.div`
   }
   & a {
     color: ${Colors.gray};
+    text-decoration: underline;
   }
 
   & a:hover {

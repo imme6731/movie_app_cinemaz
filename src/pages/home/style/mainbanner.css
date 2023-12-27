@@ -26,11 +26,9 @@
 .swiper-button-next {
   padding-right: 20px;
 }
-
+.swiper-pagination-bullet {
+  background-color: #fff !important;
+}
 .swiper-pagination-bullet-active {
   background-color: #ff5c00 !important;
-}
-
-.hover:hover {
-  transform: translateY(-15px);
 }

@@ -19,23 +19,16 @@ const SubWrap = styled.div`
   width: 280px;
   display: flex;
   flex-direction: column;
-  position: relative;
-  margin-left: 22.865%;
-  margin-top: 80px;
+  position: absolute;
+  top: 74px;
+  left: 16%;
   background-color: #3c3c3c;
   padding: 30px 40px;
-  @media screen and (max-width: 1570px) {
-    margin-left: 26.865%;
-  }
   @media screen and (max-width: 1260px) {
-    margin-left: 32.865%;
+    left: 23%;
   }
-  @media screen and (max-width: 1024px) {
-    margin-left: 37.865%;
-  }
-  @media screen and (max-width: 890px) {
-    margin-top: 70px;
-    margin-left: 22.865%;
+  @media screen and (max-width: 660px) {
+    left: 20%;
   }
 
   @keyframes dropdown {
@@ -66,8 +59,9 @@ const SSubMenu = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-size: 18px;
+    font-size: 16px;
     margin-right: 45px;
+
     p {
       margin-bottom: 25px;
       @media screen and (max-width: 890px) {

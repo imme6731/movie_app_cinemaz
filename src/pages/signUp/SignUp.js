@@ -48,7 +48,7 @@ export const SignUp = () => {
           })}
           placeholder="아이디"
         />
-        {errors?.username ? (
+        {errors?.username?.message ? (
           <ErrorMsg message={errors?.username?.message} />
         ) : (
           <Txt>영문자 또는 숫자 6~12자</Txt>
@@ -78,9 +78,9 @@ export const SignUp = () => {
           type="password"
           placeholder="비밀번호 확인"
         />
-        {errors?.passwordConfirm ? (
+        {errors?.passwordConfirm?.message ? (
           <ErrorMsg message={errors?.passwordConfirm?.message} />
-        ) : errors?.password ? (
+        ) : errors?.password?.message ? (
           <ErrorMsg message={errors?.password?.message} />
         ) : (
           <Txt>영문자, 숫자, 특수문자 포함 6~18자</Txt>

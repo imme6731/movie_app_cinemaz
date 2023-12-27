@@ -116,7 +116,7 @@ const BtnWrap = styled.ul`
     margin-bottom: 0;
   }
   & li {
-    font-size: 40px;
+    font-size: 28px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -202,7 +202,8 @@ const Overview = styled.div`
   }
   & p {
     font-size: 18px;
-    line-height: 1.3;
+    line-height: 1.5;
+    font-weight: 300;
     color: ${Colors.gray};
   }
 `;

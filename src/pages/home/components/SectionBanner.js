@@ -44,11 +44,17 @@ const More = styled.div`
   font-size: 16px;
   p {
     margin-right: 15px;
+    font-weight: 800;
   }
   @media screen and (max-width: 640px) {
     font-size: 14px;
     p {
       margin-right: 10px;
+    }
+  }
+  @media screen and (max-width: 530px) {
+    p {
+      font-weight: 400;
     }
   }
 `;

@@ -16,7 +16,7 @@ export const Form = styled.form`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #525252;
   @media screen and (max-width: 530px) {
     height: 40px;
   }
@@ -25,15 +25,22 @@ export const Form = styled.form`
   }
 `;
 export const Input = styled.input`
-  width: 90%;
+  width: 50%;
   height: 100%;
   background-color: #1d1d1d;
   border: none;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 500;
   color: white;
-  @media screen and (max-width: 530px) {
+  @media screen and (max-width: 960px) {
+    width: 70%;
+  }
+  @media screen and (max-width: 690px) {
+    width: 90%;
     font-size: 18px;
+  }
+  @media screen and (max-width: 530px) {
+    font-size: 16px;
   }
 `;
 export const Btn = styled.div`

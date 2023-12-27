@@ -12,7 +12,7 @@ const InnerWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: 0.5px solid white;
+  border-top: 0.5px solid #525252;
   @media screen and (max-width: 640px) {
     padding: 40px 0;
   }

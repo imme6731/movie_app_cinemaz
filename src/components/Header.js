@@ -3,10 +3,6 @@ import {
   faBars,
   faChevronDown,
   faChevronUp,
-  faFilm,
-  faHome,
-  faHouse,
-  faSearch,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -20,7 +16,6 @@ import {
   LeftWrap,
   Logo,
   MenuWrap,
-  HeaderIcon,
   RightWrap,
   MobileMenu,
   MovileSlideMenu,
@@ -97,12 +92,12 @@ export const Header = () => {
   };
 
   const onClickMovie = () => {
-    if (openGenre === "360px") {
-      setOpenGenre("412px");
+    if (openGenre === "420px") {
+      setOpenGenre("430px");
       setOpPer("100%");
       setIconChange(true);
     } else {
-      setOpenGenre("360px");
+      setOpenGenre("420px");
       setOpPer(0);
       setIconChange(false);
     }
@@ -139,11 +134,6 @@ export const Header = () => {
 
         <MenuWrap>
           <li>
-            <HeaderIcon>
-              <Link to={routes.home}>
-                <FontAwesomeIcon icon={faHouse} />
-              </Link>
-            </HeaderIcon>
             <Link to={routes.home}>
               <p>홈</p>
             </Link>
@@ -153,18 +143,10 @@ export const Header = () => {
               setIsOpen(!isOpen);
             }}
           >
-            <HeaderIcon>
-              <FontAwesomeIcon icon={faFilm} />
-            </HeaderIcon>
             <p>영화</p>
             {isOpen && <SubMenu />}
           </li>
           <li>
-            <HeaderIcon>
-              <Link to={routes.search}>
-                <FontAwesomeIcon icon={faSearch} />
-              </Link>
-            </HeaderIcon>
             <Link to={routes.search}>
               <p>검색</p>
             </Link>
@@ -228,7 +210,6 @@ export const Header = () => {
               }}
             >
               <HomeTap>
-                <FontAwesomeIcon icon={faHome} />
                 <p>홈</p>
               </HomeTap>
             </Link>
@@ -240,13 +221,11 @@ export const Header = () => {
               }}
             >
               <SearchTap>
-                <FontAwesomeIcon icon={faSearch} />
                 <p>검색</p>
               </SearchTap>
             </Link>
             <MovieTap onClick={onClickMovie}>
               <Left>
-                <FontAwesomeIcon icon={faFilm} />
                 <p>영화</p>
               </Left>
               <Right>

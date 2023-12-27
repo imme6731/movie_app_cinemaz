@@ -77,7 +77,8 @@ const Overview = styled.div`
   }
   & p {
     font-size: 18px;
-    line-height: 1.3;
+    line-height: 1.5;
+    font-weight: 300;
     color: ${Colors.gray};
   }
   @media screen and (max-width: 640px) {

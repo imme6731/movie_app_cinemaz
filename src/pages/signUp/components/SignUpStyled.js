@@ -51,6 +51,7 @@ export const Input = styled.input`
   border-radius: 5px;
   padding-left: 20px;
   font-size: 16px;
+  margin-bottom: 12px;
   @media screen and (max-width: 640px) {
     height: 40px;
     font-size: 14px;
@@ -59,9 +60,7 @@ export const Input = styled.input`
 `;
 export const Txt = styled.p`
   width: 100%;
-  padding: 5px 0px 5px 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding: 0px 0px 12px 10px;
   color: darkgray;
   font-size: 16px;
   @media screen and (max-width: 640px) {

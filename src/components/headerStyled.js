@@ -3,7 +3,7 @@ import { Colors, PaddingValue } from "../style/GlobalStyled";
 
 export const SHeader = styled.header`
   width: 100%;
-  padding: 20px ${PaddingValue.pcWrap};
+  padding: 25px ${PaddingValue.pcWrap};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +19,7 @@ export const LeftWrap = styled.div`
 `;
 
 export const Logo = styled.h3`
-  font-size: 40px;
+  font-size: 24px;
   font-weight: 700;
   color: ${Colors.pointColor};
   margin-right: 85px;
@@ -27,8 +27,7 @@ export const Logo = styled.h3`
     margin-right: 70px;
   }
   @media screen and (max-width: 890px) {
-    margin-right: 40px;
-    font-size: 32px;
+    margin-right: 42px;
   }
   @media screen and (max-width: 530px) {
     margin-right: 0;
@@ -43,28 +42,13 @@ export const MenuWrap = styled.ul`
     display: flex;
 
     align-items: center;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     margin-right: 50px;
     cursor: pointer;
-    @media screen and (max-width: 890px) {
-      p {
-        display: none;
-      }
-      margin-right: 0;
+    @media screen and (max-width: 660px) {
+      margin-right: 25px;
     }
-    @media screen and (max-width: 530px) {
-      display: none;
-    }
-  }
-`;
-
-export const HeaderIcon = styled.h3`
-  font-size: 22px;
-  margin-right: 10px;
-  cursor: pointer;
-  @media screen and (max-width: 890px) {
-    margin-right: 25px;
   }
   @media screen and (max-width: 530px) {
     display: none;
@@ -79,7 +63,7 @@ export const RightWrap = styled.ul`
     margin-left: 50px;
     font-size: 16px;
     color: ${Colors.gray};
-    @media screen and (max-width: 890px) {
+    @media screen and (max-width: 660px) {
       font-size: 14px;
       margin-left: 35px;
     }
@@ -124,12 +108,13 @@ export const MHeader = styled.header`
   margin-bottom: 10px;
 `;
 export const MLogo = styled.div`
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   color: ${Colors.pointColor};
 `;
 export const Out = styled.div`
-  font-size: 20px;
+  font-size: 22px;
+  cursor: pointer;
 `;
 export const Section1 = styled.div`
   h3 {
@@ -150,9 +135,8 @@ export const Btn = styled.div`
 export const Login = styled.div`
   width: 120px;
   height: 40px;
-  border: 1px solid none;
   border-radius: 40px;
-  line-height: 34px;
+  line-height: 40px;
   background-color: ${Colors.pointColor};
   margin-right: 20px;
 `;
@@ -162,7 +146,7 @@ export const SignUp = styled.div`
   border: 1px solid ${Colors.pointColor};
   color: ${Colors.pointColor};
   border-radius: 40px;
-  line-height: 34px;
+  line-height: 40px;
 `;
 export const Section2 = styled.div`
   padding: 40px 0;
@@ -173,15 +157,13 @@ export const HomeTap = styled.div`
   position: relative;
   align-items: center;
   font-size: 20px;
-  display: flex;
-  margin-left: 0;
-  padding: 15px 0;
-  border-bottom: 0.5px solid #bcbcbc;
+  padding: 20px 0;
+  border-bottom: 0.5px solid #525252;
   color: ${Colors.pointColor};
   p {
     font-size: 16px;
     color: white;
-    margin-left: 20px;
+    margin-left: 30px;
   }
   z-index: 20;
 `;
@@ -189,16 +171,13 @@ export const SearchTap = styled.div`
   position: relative;
   align-items: center;
   font-size: 20px;
-
-  display: flex;
-  margin-left: 0;
-  padding: 15px 0;
-  border-bottom: 0.5px solid #bcbcbc;
+  padding: 20px 0;
+  border-bottom: 0.5px solid #525252;
   color: ${Colors.pointColor};
   p {
     font-size: 16px;
     color: white;
-    margin-left: 20px;
+    margin-left: 30px;
   }
   z-index: 20;
 `;
@@ -206,17 +185,16 @@ export const MovieTap = styled.div`
   position: relative;
   align-items: center;
   font-size: 20px;
-  /* overflow: hidden; */
   display: flex;
   margin-left: 0;
-  padding: 15px 0;
-  border-bottom: 0.5px solid #bcbcbc;
+  padding: 20px 0;
+  border-bottom: 0.5px solid #525252;
   color: ${Colors.pointColor};
   cursor: pointer;
   p {
     font-size: 16px;
     color: white;
-    margin-left: 20px;
+    margin-left: 30px;
   }
   z-index: 20;
 `;
@@ -236,14 +214,13 @@ export const Wrap = styled.div`
   opacity: ${(props) => props.$opacity};
   width: 83%;
   background-color: #313131;
-  /* padding: 30px 40px; */
   transition: 0.5s;
   z-index: 0;
 `;
 
 export const GenreList = styled.ul`
   li {
-    padding: 15px 12%;
+    padding: 15px 30px;
     display: block !important;
     font-size: 16px !important;
     cursor: pointer;
@@ -251,7 +228,7 @@ export const GenreList = styled.ul`
       margin-bottom: 0;
     }
     & a {
-      color: ${Colors.gray};
+      color: #c5c5c5;
     }
   }
   li:hover {

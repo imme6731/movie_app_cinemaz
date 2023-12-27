@@ -2,6 +2,7 @@ import {
   LoginWrap,
   Form,
   Title,
+  SubTitle,
   Input,
   AutoLogin,
   CheckBox,
@@ -36,13 +37,18 @@ export const Login = () => {
       <PageTitle titlename={` | Login`} />
       <Form onSubmit={handleSubmit(Submit)}>
         <Title>Login</Title>
+        <SubTitle>지금 바로 CINEMAZ를 시작해보세요!</SubTitle>
         <Input
           {...register("username", {
             required: "아이디는 필수 입니다.",
           })}
           placeholder="아이디"
         />
-        <ErrorMsg message={errors?.username?.message} />
+        {errors?.username?.message ? (
+          <ErrorMsg message={errors?.username?.message} />
+        ) : (
+          ""
+        )}
         <Input
           {...register("password", {
             required: "비밀번호는 필수 입니다.",
@@ -58,7 +64,11 @@ export const Login = () => {
           type="password"
           placeholder="비밀번호"
         />
-        <ErrorMsg message={errors?.password?.message} />
+        {errors?.password?.message ? (
+          <ErrorMsg message={errors?.password?.message} />
+        ) : (
+          ""
+        )}
         <AutoLogin>
           <CheckBox type="checkbox" />
           <p>자동 로그인</p>
